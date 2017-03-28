@@ -1,5 +1,7 @@
 package fr.adaming.entities;
 
+import java.util.List;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -27,6 +29,14 @@ public class Client extends Personne {
 	/* Les associations : 1 conseiller, 1 compte epargne, 1 compte courant*/
 	@ManyToOne
 	private Conseiller conseiller;
+	
+	/**
+	 * Association avec le compte
+	 * Chaque client peut avoir un compte epargne et un compte courant :
+	 * Les regles de gestion sont verifies dans le service
+	 */
+	@OneToMany(mappedBy="client")
+	private List<Compte> listeCompte;
 	
 	
 	/* LES CONSTRUCTEURS */
