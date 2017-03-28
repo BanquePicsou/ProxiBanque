@@ -40,7 +40,8 @@ public abstract class Compte implements Serializable {
 	private double solde;
 	@Column(name="datecrea_compte")
 	private Date datecreation;
-	
+	@Column(name="type_compte")
+	private String typecompte;
 	/* Les associations : chaque compte est lié à un client et chaque client a un compte (de chaque type) */
 	@ManyToOne
 	private Client client;
@@ -54,7 +55,7 @@ public abstract class Compte implements Serializable {
 		super();
 	}
 
-	/** constructeur d'un compte sans client associé*/
+	/** constructeur d'un compte sans client associé, le type sera set dans le service*/
 	public Compte(long numero, double solde, Date datecreation) {
 		super();
 		this.numero = numero;
@@ -62,7 +63,7 @@ public abstract class Compte implements Serializable {
 		this.datecreation = datecreation;
 	}
 
-	/** constructeur d'un compte avec client associé */
+	/** constructeur d'un compte avec client associé, le type sera set dans le service */
 	public Compte(long numero, double solde, Date datecreation, Client client) {
 		super();
 		this.numero = numero;
@@ -72,19 +73,22 @@ public abstract class Compte implements Serializable {
 	}
 
 	/** constructeur complet */
-	public Compte(int id, long numero, double solde, Date datecreation, Client client) {
+	public Compte(int id, long numero, double solde, Date datecreation, String typecompte, Client client) {
 		super();
 		this.id = id;
 		this.numero = numero;
 		this.solde = solde;
 		this.datecreation = datecreation;
+		this.typecompte = typecompte;
 		this.client = client;
 	}
+
 
 	/* GETTER ET SETTERS */
 	public int getId() {
 		return id;
 	}
+
 
 	public void setId(int id) {
 		this.id = id;
@@ -120,6 +124,14 @@ public abstract class Compte implements Serializable {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	public String getTypecompte() {
+		return typecompte;
+	}
+
+	public void setTypecompte(String typecompte) {
+		this.typecompte = typecompte;
 	}
 	
 	
