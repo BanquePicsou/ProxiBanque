@@ -7,8 +7,8 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/WebContent/application-context.xml</config>
-		<config>src/main/WebContent/mvc-context.xml</config>
+		<config>src/main/WebContent/WEB-INF/application-context.xml</config>
+		<config>src/main/WebContent/WEB-INF/mvc-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
