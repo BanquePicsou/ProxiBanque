@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * Classe correspondant aux Gerant : gère une agence et les conseillers associes
@@ -23,6 +24,12 @@ public class Gerant extends Conseiller{
 	/* Les associations : une liste de conseiller et une agence */
 	@OneToMany(mappedBy="gerant")
 	private List<Conseiller> listeConseiller;
+	
+	/**
+	 * Un gerant gère une agence
+	 */
+	@OneToOne(mappedBy="gerant")
+	private Agence agence;
 
 	/* Les constructeurs  */
 	
@@ -64,6 +71,15 @@ public class Gerant extends Conseiller{
 
 	public void setListeConseiller(List<Conseiller> listeConseiller) {
 		this.listeConseiller = listeConseiller;
+	}
+
+	
+	public Agence getAgence() {
+		return agence;
+	}
+
+	public void setAgence(Agence agence) {
+		this.agence = agence;
 	}
 
 	/**

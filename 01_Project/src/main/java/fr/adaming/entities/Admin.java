@@ -1,5 +1,7 @@
 package fr.adaming.entities;
 
+import java.util.List;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -17,12 +19,22 @@ public class Admin extends Gerant {
 	
 	private static final long serialVersionUID = 1L;
 
-	
+	/**
+	 * L'admin gère toutes agences
+	 */
+	private List<Agence> listAgence;
+
+	public List<Agence> getListAgence() {
+		return listAgence;
+	}
+
+	public void setListAgence(List<Agence> listAgence) {
+		this.listAgence = listAgence;
+	}
 	
 
-	/* Les associations : liste d'agence */
 	
-	/**/
+
 
 	
 	
