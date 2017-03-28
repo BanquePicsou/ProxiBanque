@@ -2,6 +2,7 @@ package fr.adaming.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -20,9 +21,12 @@ public class Client extends Personne {
 	
 	private static final long serialVersionUID = 1L;
 	/** Les informations sur le client */
+	@Column(name="adresse_client")
 	private String adresse;
+	@Column(name="telephone_client")
 	private String telephone;
 	/** Chaque client a le choix entre une carte visa prenium et une carte electron */
+	@Column(name="carte_client")
 	private String carte;
 
 	

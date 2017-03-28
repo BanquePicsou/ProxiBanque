@@ -2,6 +2,7 @@ package fr.adaming.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,11 +30,15 @@ public abstract class Personne implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_personne")
 	private int id;
+	@Column(name="nom_personne")
 	private String nom;
+	@Column(name="prenom_personne")
 	private String prenom;
 	/** Cet attribut est inscrit dans la bdd pour discriminer les users
 	attribué à la personne dans le service lors de l'ajout*/
+	@Column(name="role_personne")
 	private String role;
 	
 	

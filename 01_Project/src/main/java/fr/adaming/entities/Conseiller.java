@@ -2,6 +2,7 @@ package fr.adaming.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -18,6 +19,7 @@ public class Conseiller extends Personne{
 	/**
 	 * Le mot de passe utilisé pour la connexion
 	 */
+	@Column(name="mdp_users")
 	private String password;
 	
 	
