@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+      <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,9 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<h2>Formulaire ajouter compte courant</h2>
-	<form:form method="POST" action="${pageContext.request.contextPath}/compte/ajoutCompteCourant"
+<h2>Formulaire ajouter compte epargne</h2>
+	<form:form method="POST" action="${pageContext.request.contextPath}/compte/ajoutCompteEpargne"
 		commandName="command">
 		<table>
 			<tr>
@@ -23,9 +22,9 @@
 				<td><form:errors path="numero" cssStyle="color:red" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="decouvert">decouvert:</form:label></td>
-				<td><form:input path="decouvert" /></td>
-				<td><form:errors path="decouvert" cssStyle="color:red" /></td>
+				<td><form:label path="taux">taux:</form:label></td>
+				<td><form:input path="taux" /></td>
+				<td><form:errors path="taux" cssStyle="color:red" /></td>
 			</tr>
 
 			<tr>

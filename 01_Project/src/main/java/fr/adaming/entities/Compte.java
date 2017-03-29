@@ -14,6 +14,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 /**
  * La classe abstraite Compte qui contient les info 
  * de base partagés par tous les comptes
@@ -39,6 +42,7 @@ public abstract class Compte implements Serializable {
 	@Column(name="solde_compte")
 	private double solde;
 	@Column(name="datecrea_compte")
+	@DateTimeFormat(iso=ISO.DATE)
 	private Date datecreation;
 	@Column(name="type_compte")
 	private String typecompte;
