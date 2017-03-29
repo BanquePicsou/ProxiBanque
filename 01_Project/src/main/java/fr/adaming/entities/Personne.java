@@ -12,6 +12,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 /**
  * La classe abstraite Personne comprend les informations de bases 
  * lié à toute persone enregistrées dans la base de donnée.
@@ -40,6 +42,9 @@ public abstract class Personne implements Serializable{
 	attribué à la personne dans le service lors de l'ajout*/
 	@Column(name="role_personne")
 	private String role;
+	@Column(name="actived")
+	@Type(type="byte")
+	boolean actived;
 	
 	
 	/* Constructeurs */
