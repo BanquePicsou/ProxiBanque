@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.adaming.entities.Agence;
 
 /**
+ * Classe de gestion des agences
+ * 
  * @author inti0292
  *
  */
@@ -21,22 +23,26 @@ import fr.adaming.entities.Agence;
 public class AgenceDaoImpl implements IAgenceDao {
 
 	/**
-	 * 
+	 * Attribut en Autowired utilisé pour la connection dans la base de donnée
+	 * et la création d'un entity manager
 	 */
 	@Autowired
 	EntityManagerFactory emf;
 
 	/**
+	 * Setter de l'entity manager factory pour la création des Entity manager
+	 * dans les méthodes
+	 * 
 	 * @param emf
 	 */
 	public void setEmf(EntityManagerFactory emf) {
 		this.emf = emf;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Ajout d'une agence en bdd
 	 * 
-	 * @see fr.adaming.dao.IAgenceDao#addAgence(fr.adaming.entities.Agence)
+	 * @param agence
 	 */
 	@Override
 	public void addAgence(Agence agence) {
@@ -45,10 +51,10 @@ public class AgenceDaoImpl implements IAgenceDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Suppresion d'une agence en bdd
 	 * 
-	 * @see fr.adaming.dao.IAgenceDao#deleteAgence(fr.adaming.entities.Agence)
+	 * @param agence
 	 */
 	@Override
 	public void deleteAgence(Agence agence) {
@@ -57,10 +63,10 @@ public class AgenceDaoImpl implements IAgenceDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Création d'une liste d'agence complète à partir de la table agence.
 	 * 
-	 * @see fr.adaming.dao.IAgenceDao#getList()
+	 * @return liste de résultats
 	 */
 	@Override
 	public List<Agence> getList() {
@@ -70,10 +76,11 @@ public class AgenceDaoImpl implements IAgenceDao {
 		return query.getResultList();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Recherche d'un agence par son id unique en bdd
 	 * 
-	 * @see fr.adaming.dao.IAgenceDao#getAgence(int)
+	 * @param id
+	 * @return l'objet agence dont l'id = id en paramètre
 	 */
 	@Override
 	public Agence getAgence(int id) {
@@ -81,10 +88,10 @@ public class AgenceDaoImpl implements IAgenceDao {
 		return em.find(Agence.class, id);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Mise à jour d'une agence en bdd
 	 * 
-	 * @see fr.adaming.dao.IAgenceDao#updateAgence(fr.adaming.entities.Agence)
+	 * @param agence
 	 */
 	@Override
 	public void updateAgence(Agence agence) {
