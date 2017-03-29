@@ -11,16 +11,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="<c:url value="/resources/bootstrap/js/jquery-3.2.0.min.js" />"></script>
-<script src="<c:url value="/resources/bootstrap/js/bootstrap.js" />"></script>
-<link href="<c:url value="/resources/css/MonStyleSheet.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/bootstrap/css/bootstrap.css" />"
-	rel="stylesheet">
-
-
-
-
+<script src="<c:url value="resources/js/jquery-3.2.0.min.js" />"></script>
+<script src="<c:url value="resources/js/bootstrap.js" />"></script>
+<link href="<c:url value="resources/css/MonStyleSheet.css" />" rel="stylesheet" >
+<link href="<c:url value="resources/css/bootstrap.css"/>"
+	rel="stylesheet" type="text/css">
+	
 </head>
+
 <body>
 	<div class="container-fluid">
 		<div class="row">
@@ -32,7 +30,7 @@
 					
 					<div class="col-md-4" id="Menu"> <h1>Je suis le Menu</h1></div>
 					
-					<div class="col-md-6" id="Contenue"> <h1>Je suis le Contenue</h1></div>
+					<div class="col-md-6" id="Contenu"> <h1>Je suis le Contenu</h1></div>
 					
 					<div class="col-md-12" id="Footer"> <h1>Je suis le Footer</h1> </div>
 					
@@ -40,5 +38,6 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>

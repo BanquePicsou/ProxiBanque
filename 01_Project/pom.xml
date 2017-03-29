@@ -11,7 +11,6 @@
 		<spring.version>4.1.9.RELEASE</spring.version>
 		<hibernate.version>4.2.21.Final</hibernate.version>
 		<jsf.version>2.2.4</jsf.version>
-		<spring-secur.version>3.2.0.RELEASE</spring-secur.version>
 	</properties>
 
 
@@ -138,7 +137,7 @@
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<version>1.1.0.Final</version>
+			<version>1.0.0.GA</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
@@ -146,6 +145,26 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.5</version>
+		</dependency>
+		<!-- LIBRAIRIES DE SPRING SECURITY MA GUEULE -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.2.0.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.2.0.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.2.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -191,26 +210,10 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.6.4</version>
 		</dependency>
-		<!-- Librairies de SpringSecurity -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring-secur.version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${spring-secur.version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring-secur.version}</version>
-		</dependency>
+
+
 	</dependencies>
+
 
 	<build>
 		<plugins>
