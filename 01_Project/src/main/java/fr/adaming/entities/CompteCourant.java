@@ -52,11 +52,12 @@ public class CompteCourant extends Compte {
 	 * @param numero
 	 * @param solde
 	 * @param datecreation
+	 * @param typecompte
 	 * @param client
 	 * @param decouvert
 	 */
-	public CompteCourant(int id, long numero, double solde, Date datecreation, Client client, double decouvert) {
-		super(id, numero, solde, datecreation, client);
+	public CompteCourant(int id, long numero, double solde, Date datecreation,String typecompte, Client client, double decouvert) {
+		super(id, numero, solde, datecreation,typecompte, client);
 		this.decouvert = decouvert;
 	}
 
