@@ -88,12 +88,45 @@ public class PersonneServiceImpl implements IPersonneService {
 	/** Cette methode peut supprimer n'importe quelle personne selon son id
 	 * La personne est récupérée via la methode getByID puis envoyée à la 
 	 * DAO via une méthode générique.
+	 * @param role : le role de l'utilisateur connecté, pour vérifier s'il a le privilege suffisant pour 
+	 * supprimer l'utilisateur
 	 * @param id : identifiant dans la bdd de l'individu à supprimer
-	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao  */
+	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao 
+	 * @return string utilisé pour la navigation suite à un refus de la suppression si privilege insuffisant */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void deletePersonne(int id) {
-		personneDao.deletePersonne(personneDao.getPersonne(id));	
+	public String deletePersonne(int id, String role) {
+		Personne p = personneDao.getPersonne(id);
+		//Si c'est un simple client, tout le monde peut supprimer
+		if(p.getRole().equals("client")){
+			personneDao.deletePersonne(p);
+			return "deleteok";
+		}
+		//si c'est un conseiller, seul gerant et admin peuvent supprimer
+		if(p.getRole().equals("conseiller")){
+			if(role.equals("conseiller")){
+			return "refus";
+			}
+			if(role.equals("gerant") || role.equals("admin")){
+				personneDao.deletePersonne(p);
+				return "deleteok";
+				}
+		}
+		//si c'est un gérant, seul admin peut supprimer
+		if(p.getRole().equals("gerant")){
+			if(role.equals("conseiller")||role.equals("gerant")){
+			return "refus";
+			}
+			if(role.equals("admin")){
+				personneDao.deletePersonne(p);
+				return "deleteok";
+			}
+		}
+		//si c'est un admin, personne ne peut le supprimer
+		if(p.getRole().equals("admin")){
+			return "refus";
+		}
+		return null;
 	}
 
 

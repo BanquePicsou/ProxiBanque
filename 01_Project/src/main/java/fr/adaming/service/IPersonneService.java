@@ -24,8 +24,8 @@ public interface IPersonneService {
 	public void addConseiller (Conseiller conseiller);
 	
 	/* pour supprimer */
-	/** Cette methode peut supprimer n'importe quelle personne selon son id */
-	public void deletePersonne (int id);
+	/** Cette methode peut supprimer n'importe quelle personne selon son id*/
+	public String deletePersonne (int id, String role);
 	
 	/* pour récupérer */
 	/** Permet de récupérer n'importe quelle personne selon son ID */
