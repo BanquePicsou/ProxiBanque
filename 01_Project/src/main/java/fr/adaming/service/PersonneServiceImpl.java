@@ -39,7 +39,14 @@ public class PersonneServiceImpl implements IPersonneService {
 	@Autowired
 	IPersonneDao personneDao;
 	
-	
+	/**
+	 * Le setter de personneDao pour le fonctionnement correct de l'autowired
+	 * @param personneDao
+	 */
+	public void setPersonneDao(IPersonneDao personneDao) {
+		this.personneDao = personneDao;
+	}
+
 	/** Ajoute un client en appelant la méthode générique Dao ajout Personne
 	 * Comme il s'agit d'un client, le rôle "client" lui est attribué avant 
 	 * la transmission à la base de donnée

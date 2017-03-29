@@ -17,11 +17,15 @@ import fr.adaming.entities.Personne;
  * Communique avec la BDD
  * @author inti0302
  *
- * @param <T>
+ * @param <T> t etend personne et toutes ses classes filles
  */
 @Repository
 public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 
+	/**
+	 * Cet attribut est utilisé pour la connexion avec la base de donnée 
+	 * et la création d'un entity manager
+	 */
 	@Autowired
 	EntityManagerFactory emf;
 						
@@ -34,7 +38,9 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	}
 
 	/**
-	 * Methode generique pour ajouter une personne
+	 * Methode generique pour ajouter une personne :
+	 * @param personne T : peu importe son type, il sera enregistré dans la bdd 
+	 * sans perte d'information
 	 */
 	@Override
 	public void addPersonne(T personne) {
@@ -44,6 +50,7 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 
 	/**
 	 * Methode generique pour delete une personne
+	 * 	@param personne T : peu importe son type, il sera supprimé de la bdd
 	 */
 	@Override
 	public void deletePersonne(T personne) {
@@ -53,6 +60,8 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 
 	/**
 	 * Methode generique pour recupérer la liste des personnes
+	 * @return la liste intégrale des personne : elle sera ensuite trié 
+	 * selon différentes régles de gestion dans les services
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -64,7 +73,9 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	}
 
 	/**
-	 * Methode generique pour récupérer une personne
+	 * Methode generique pour récupérer une personne :
+	 * @return personne selon id; sans perte d'information par rapport à son type
+	 * @param id de la personne à chercher
 	 */
 	@Override
 	public Personne getPersonne(int id) {
@@ -73,7 +84,8 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	}
 
 	/**
-	 * Methode générique pour mettre à jour une personne
+	 *@param personne T : peu importe son type, il sera enregistré dans la bdd 
+	 * sans perte d'information
 	 */
 	@Override
 	public void updatePersonne(T personne) {
