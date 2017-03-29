@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  * Admin : doit etre crer a la main dans la bdd
@@ -22,6 +23,7 @@ public class Admin extends Gerant {
 	/**
 	 * L'admin gère toutes agences
 	 */
+	@OneToMany(mappedBy="admin")
 	private List<Agence> listAgence;
 
 	public List<Agence> getListAgence() {

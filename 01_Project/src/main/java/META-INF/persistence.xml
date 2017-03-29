@@ -17,5 +17,11 @@
 		<class>fr.adaming.entities.Conseiller</class>
 		<class>fr.adaming.entities.Gerant</class>
 
+
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+		</properties>
 	</persistence-unit>
 </persistence>
