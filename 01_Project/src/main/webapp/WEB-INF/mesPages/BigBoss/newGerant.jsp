@@ -41,9 +41,9 @@
 
 					<div class="col-md-9" id="Contenu">
 						<h1>Je suis le Contenu</h1>
-						<form:form method="POST"
-							action="${pageContext.request.contextPath}/user/soumettreGerant"
-							commandName="command">
+							<form:form method="POST"
+								action="${pageContext.request.contextPath}/user/soumettreGerant"
+								commandName="command">
 							<table class="formAjout">
 
 								<tr>

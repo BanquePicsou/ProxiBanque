@@ -40,6 +40,7 @@ public class PersonneController {
 	IPersonneService personneService;
 	
 	
+	
 	/* -------------------------------------------- les méthodes d'ajouts de personnes : */
 	/*-1)Ajout d'un client*/
 	/* 1)a)génération du formulaire */
