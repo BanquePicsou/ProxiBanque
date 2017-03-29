@@ -16,65 +16,64 @@ import fr.adaming.entities.Agence;
 public class AgenceServiceImpl implements IAgenceService {
 
 	/**
-	 * 
+	 * Liaison faible d'agenceDao
 	 */
 	@Autowired
 	IAgenceDao agenceDao;
 
 	/**
+	 * Setter d'agence Dao
 	 * @param agenceDao
 	 */
 	public void setAgenceDao(IAgenceDao agenceDao) {
 		this.agenceDao = agenceDao;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Ajout d'une agence
 	 * 
-	 * @see
-	 * fr.adaming.service.IAgenceService#addAgence(fr.adaming.entities.Agence)
+	 * @param agence
 	 */
 	@Override
 	public void addAgence(Agence agence) {
 		agenceDao.addAgence(agence);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Suppresion d'une agence
 	 * 
-	 * @see fr.adaming.service.IAgenceService#deleteAgence(fr.adaming.entities.
-	 * Agence)
+	 * @param agence
 	 */
 	@Override
 	public void deleteAgence(Agence agence) {
 		agenceDao.deleteAgence(agence);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Création d'une liste d'agence complète à partir de la dao
 	 * 
-	 * @see fr.adaming.service.IAgenceService#getList()
+	 * @return liste de résultats
 	 */
 	@Override
 	public List<Agence> getList() {
 		return agenceDao.getList();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Recherche d'un agence par son id unique en dao
 	 * 
-	 * @see fr.adaming.service.IAgenceService#getAgence(int)
+	 * @param id
+	 * @return l'objet agence dont l'id = id en paramètre
 	 */
 	@Override
 	public Agence getAgence(int id) {
 		return agenceDao.getAgence(id);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Mise à jour d'une agence via dao
 	 * 
-	 * @see fr.adaming.service.IAgenceService#updateAgence(fr.adaming.entities.
-	 * Agence)
+	 * @param agence
 	 */
 	@Override
 	public void updateAgence(Agence agence) {
