@@ -44,7 +44,9 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	 */
 	@Override
 	public void addPersonne(T personne) {
+		System.out.println("DAO : avant creation entity manager");
 		EntityManager em = emf.createEntityManager();
+		System.out.println("DAO : juste avant le persist ");
 		em.persist(personne);
 	}
 

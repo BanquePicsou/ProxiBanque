@@ -68,7 +68,10 @@ public class PersonneServiceImpl implements IPersonneService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addGerant(Gerant gerant) {
+		System.out.println("je rentre dans le service add gerant");
 		gerant.setRole("gerant");
+		System.out.println(gerant);
+		System.out.println("-------------------");
 		personneDao.addPersonne(gerant);
 	}
 

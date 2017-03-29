@@ -24,7 +24,7 @@
 	<security:http>
 
 		<!-- Interception des urL -->
-		<security:intercept-url pattern="/user/**"
+		<security:intercept-url pattern="caca"
 			access="ROLE_BOSS,ROLE_GERANT,ROLE_CONSEILLE" />
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login" />
