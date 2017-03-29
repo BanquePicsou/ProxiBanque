@@ -16,16 +16,6 @@
 
 	<context:property-placeholder location="classpath*:db.properties" />
 
-	<bean id="persistenceUnitManager"
-		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
-		<property name="defaultDataSource" ref="dataSourceBean" />
-		<property name="persistenceXmlLocations">
-			<list>
-				<value>classpath*:META-INF/persistence.xml</value>
-			</list>
-		</property>
-	</bean>
-
 
 	<bean id="dataSourceBean"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -37,11 +27,27 @@
 
 
 
+
 	<bean id="entityManagerFactoryBean"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
-		<property name="persistenceUnitManager" ref="persistenceUnitManager" />
 		<property name="persistenceUnitName" value="PU" />
+		
+		<property name="packagesToScan" value="fr.adaming.entities" />
+		
+		<property name="dataSource" ref="dataSourceBean" />
+		
+		<property name="jpaVendorAdapter">
+		<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+		</property>
+		
+		<property name="jpaProperties">
+		<props>
+		<prop key="hibernate.dialect">${db.dialect}</prop>
+		<prop key="hibernate.show_sql">${db.requete_sql}</prop>
+		<prop key="hibernate.hbm2ddl.auto">${db.hbm2ddl}</prop>
+		</props>
+		</property>
 
 	</bean>
 

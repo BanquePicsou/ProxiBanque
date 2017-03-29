@@ -15,38 +15,37 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Type;
 
 /**
- * La classe abstraite Personne comprend les informations de bases 
- * lié à toute persone enregistrées dans la base de donnée.
- * Les classes filles sont : Client et Conseiller Clientèle.
- * Tous les users sont mapés dans la 
+ * La classe abstraite Personne comprend les informations de bases lié à toute
+ * persone enregistrées dans la base de donnée. Les classes filles sont : Client
+ * et Conseiller Clientèle. Tous les users sont mapés dans la
+ * 
  * @author inti0302
  *
  */
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="rôle")
-@Table(name="personnes")
-public abstract class Personne implements Serializable{
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "rôle")
+@Table(name = "personnes")
+public abstract class Personne implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_personne")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_personne")
 	private int id;
-	@Column(name="nom_personne")
+	@Column(name = "nom_personne")
 	private String nom;
-	@Column(name="prenom_personne")
+	@Column(name = "prenom_personne")
 	private String prenom;
-	/** Cet attribut est inscrit dans la bdd pour discriminer les users
-	attribué à la personne dans le service lors de l'ajout*/
-	@Column(name="role_personne")
+	/**
+	 * Cet attribut est inscrit dans la bdd pour discriminer les users attribué
+	 * à la personne dans le service lors de l'ajout
+	 */
+	@Column(name = "role_personne")
 	private String role;
-	@Column(name="actived")
-	@Type(type="byte")
+	@Column(name = "actived")
 	boolean actived;
-	
-	
+
 	/* Constructeurs */
 	/**
 	 * Constructeur vide la classe personne
@@ -56,8 +55,9 @@ public abstract class Personne implements Serializable{
 	}
 
 	/**
-	 * Constructeur avec paramètre (sans id)
-	 * Sans rôle : celui-ci est inscrit via le setter dans le Service
+	 * Constructeur avec paramètre (sans id) Sans rôle : celui-ci est inscrit
+	 * via le setter dans le Service
+	 * 
 	 * @param nom
 	 * @param prenom
 	 * @param role
@@ -66,10 +66,11 @@ public abstract class Personne implements Serializable{
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-			}
+	}
 
 	/**
 	 * Constructeur chargé
+	 * 
 	 * @param id
 	 * @param nom
 	 * @param prenom
@@ -83,10 +84,8 @@ public abstract class Personne implements Serializable{
 		this.role = role;
 	}
 
+	/* Getter et Setters */
 
-		
-	/*Getter et Setters */
-	
 	public int getId() {
 		return id;
 	}
@@ -118,5 +117,13 @@ public abstract class Personne implements Serializable{
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+
+	public boolean isActived() {
+		return actived;
+	}
+
+	public void setActived(boolean actived) {
+		this.actived = actived;
+	}
+
 }

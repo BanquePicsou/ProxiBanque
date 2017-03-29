@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
@@ -26,16 +26,19 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	 * Cet attribut est utilisé pour la connexion avec la base de donnée 
 	 * et la création d'un entity manager
 	 */
-	@Autowired
-	EntityManagerFactory emf;
+	@PersistenceContext
+	EntityManager em;
 						
 	/**
 	 * Le setter de l'EMF pour le fonctionnement correct de l'autowired
 	 * @return
 	 */
-	public void setEmf(EntityManagerFactory emf) {
-		this.emf = emf;
+	public void setEm(EntityManager em) {
+		this.em = em;
 	}
+	
+	
+	
 
 	/**
 	 * Methode generique pour ajouter une personne :
@@ -45,10 +48,12 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	@Override
 	public void addPersonne(T personne) {
 		System.out.println("DAO : avant creation entity manager");
-		EntityManager em = emf.createEntityManager();
 		System.out.println("DAO : juste avant le persist ");
 		em.persist(personne);
+		
 	}
+
+	
 
 	/**
 	 * Methode generique pour delete une personne
@@ -56,7 +61,6 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	 */
 	@Override
 	public void deletePersonne(T personne) {
-		EntityManager em = emf.createEntityManager();
 		em.remove(personne);	
 	}
 
@@ -68,7 +72,6 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Personne> getList() {
-		EntityManager em = emf.createEntityManager();
 		String req = "Select p FROM Personne p";
 		Query query = em.createQuery(req);
 		return query.getResultList();
@@ -81,7 +84,6 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	 */
 	@Override
 	public Personne getPersonne(int id) {
-		EntityManager em = emf.createEntityManager();
 		return em.find(Personne.class, id);
 	}
 
@@ -91,7 +93,6 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	 */
 	@Override
 	public void updatePersonne(T personne) {
-		EntityManager em = emf.createEntityManager();
 		em.merge(personne);		
 	}
 

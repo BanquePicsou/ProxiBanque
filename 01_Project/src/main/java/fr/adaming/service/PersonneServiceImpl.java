@@ -56,6 +56,7 @@ public class PersonneServiceImpl implements IPersonneService {
 	@Override
 	public void addClient(Client client) {
 		client.setRole("client");
+		client.setActived(true);
 		personneDao.addPersonne(client);
 		
 	}
@@ -70,6 +71,7 @@ public class PersonneServiceImpl implements IPersonneService {
 	public void addGerant(Gerant gerant) {
 		System.out.println("je rentre dans le service add gerant");
 		gerant.setRole("gerant");
+		gerant.setActived(true);
 		System.out.println(gerant);
 		System.out.println("-------------------");
 		personneDao.addPersonne(gerant);
@@ -84,6 +86,7 @@ public class PersonneServiceImpl implements IPersonneService {
 	@Override
 	public void addConseiller(Conseiller conseiller) {
 		conseiller.setRole("conseiller");
+		conseiller.setActived(true);
 		personneDao.addPersonne(conseiller);
 		
 	}
