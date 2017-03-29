@@ -15,9 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.adaming.entities.Compte;
 /**
  * Classe dao pour les comptes façon generique
+ * lien avec la base de donnée
  * @author inti0242
  *
- * @param <T>
+ * @param <T> pour choisir un compte epargne et un compte courant
  */
 @Repository
 public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
@@ -29,7 +30,10 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 	EntityManagerFactory emf;
 	
 	//setter pour injection
-	
+	/**
+	 * setter pour l'injection de l'autowired
+	 * @param emf
+	 */
 	public void setEmF(EntityManagerFactory emf) {
 		this.emf = emf;
 	}
@@ -38,6 +42,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 	
 	/**
 	 * methode ajouter un compte (epargne ou courant)
+	 * @param compte T : permert d'ajouter un compte peu importe son type
 	 */
 	@Override
 	public void addCompte(T compte) {
@@ -48,6 +53,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 
 	/**
 	 * supprimer un compte (epargne ou courant)
+	 * @param compte T : permert de supprimer un compte peu importe son type
 	 */
 	@Override
 	public void deleteCompte(T compte) {
@@ -58,6 +64,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 
 	/**
 	 * recupperer la liste de compte
+	 * @return liste de tous les comptes
 	 */
 	@Override
 	public List<Compte> getList() {
@@ -69,6 +76,8 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 
 	/**
 	 * trouver un compte par son id
+	 * @return compte avec toutes les informations
+	 * @param id du compte a chercher
 	 */
 	@Override
 	public Compte getCompte(int id) {
@@ -78,6 +87,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 
 	/**
 	 * modifier un compte 
+	 * @param compte T : permert de modifier un compte peu importe son type
 	 */
 	@Override
 	public void updateCompte(T compte) {
