@@ -6,7 +6,11 @@ import fr.adaming.entities.Compte;
 import fr.adaming.entities.CompteCourant;
 import fr.adaming.entities.CompteEpargne;
 
-
+/**
+ * interfacace du compte service
+ * @author inti0242
+ *
+ */
 public interface ICompteServive {
 
 	/* Les methodes pour ajouter un compte */
