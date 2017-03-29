@@ -11,11 +11,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link href="<c:url value="/static/css/MonStyleSheet.css" />" rel="stylesheet">
-<link href="<c:url value="/static/bootstrap/css/bootstrap.css" />"
+<script src="<c:url value="/resources/bootstrap/js/jquery-3.2.0.min.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/bootstrap.js" />"></script>
+<link href="<c:url value="/resources/css/MonStyleSheet.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/bootstrap/css/bootstrap.css" />"
 	rel="stylesheet">
-<script src="<c:url value="/static/bootstrap/js/jquery-3.2.0.min.js" />"></script>
-<script src="<c:url value="static/bootstrap/js/bootstrap.js" />"></script>
+
+
 
 
 </head>
