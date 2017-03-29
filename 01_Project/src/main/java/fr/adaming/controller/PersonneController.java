@@ -144,19 +144,6 @@ public class PersonneController {
 	}
 	
 		
-	/* les methodes de récupération de liste */
-	/*1) récupération de la liste globale */
-	/**
-	 * Retourne dans le model sous le nom personneList la liste complète de tout les employés (utilisé par l'admin ?)
-	 * @param model
-	 * @return string pour la navigation
-	 */
-	@RequestMapping(value="/admin/liste", method=RequestMethod.GET)
-	public String afficherPersonne(ModelMap model){
-		List<Personne> listePersonne = personneService.getAllPersonne();
-		model.addAttribute("personneListe", listePersonne);
-		return null; /* mettre le retour pour la navigation quand on aura tout fini :) */
-	}
-	
+	/*------- METTRE A JOUR DES PERSONNES ---------------*/
 	
 }
