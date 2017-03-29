@@ -19,7 +19,7 @@ import fr.adaming.entities.Conseiller;
 import fr.adaming.service.IAgenceService;
 
 @Controller
-@RequestMapping("/agence")
+@RequestMapping("/admin/agence")
 public class AgenceController{
 
 	/**
