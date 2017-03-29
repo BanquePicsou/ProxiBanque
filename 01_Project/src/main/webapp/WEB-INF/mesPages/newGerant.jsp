@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!--     Ajout d ela taglib form de spring -->
@@ -34,10 +34,7 @@
 
 					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
 
-					<div class="col-md-2" id="Menu">
-						<div></div>
-						<h1>Je suis le Menu</h1>
-					</div>
+					<%@include file="/resources/template/BigBoss/MenuGerant.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
 						<h1>Je suis le Contenu</h1>
@@ -69,9 +66,7 @@
 						</form:form>
 					</div>
 
-					<div class="col-md-12" id="Footer">
-						<h1>Je suis le Footer</h1>
-					</div>
+						<%@include file="/resources/template/Footer.jsp"%>
 
 				</div>
 			</div>

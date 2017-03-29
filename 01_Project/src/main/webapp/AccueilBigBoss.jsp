@@ -25,11 +25,37 @@
 </head>
 
 <body background="resources/img/374215-alexfas01.jpg">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12" id="banner">
+				<h1>Chaque centime est un pas vers le milliard</h1>
+			</div>
+				<img src = "resources/img/1947-balthazar-picsou-00.png" id=Portrait>
+			<div class="container">
+				<div class="row">
+				
+					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
+					
+					<div class="col-md-2" id="Menu">
+
+						<h1>Je suis le Menu</h1>
+					
 	
-	<div class="col-md-12" id="Header"> <a href="${pageContext.request.contextPath}/AccueilBigBoss.jsp"><button
-			type="button" class="btn btn-primary" data-whatever="@mdo">Admin
-		</button></a>
-		  </div>
+
+
+					</div>
+
+					<div class="col-md-9" id="Contenu">
+						<h1>Je suis le Contenu</h1>
+						
+					</div>
+
+						<%@include file="/resources/template/Footer.jsp"%>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

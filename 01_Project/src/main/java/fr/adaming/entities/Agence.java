@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 /**
  * La classe Agence est gerée par un gerant, comporte plusieurs 
  * conseiller et sert plusieurs clients (a travers les conseiller)
@@ -32,6 +35,7 @@ public class Agence implements Serializable {
 	@Column(name="identifiant_agence")
 	private String identifiant;
 	@Column(name="creation_agence")
+	@DateTimeFormat(iso=ISO.DATE)
 	private Date datecreation;
 	
 	/* Les associations */
