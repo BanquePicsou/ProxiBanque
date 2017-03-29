@@ -12,7 +12,9 @@ import fr.adaming.entities.Compte;
 import fr.adaming.entities.CompteCourant;
 import fr.adaming.entities.CompteEpargne;
 /**
- * classe service pour les comptes(permet de gérer les regles de gestion)
+ * classe service pour les comptes (permet de gérer les regles de gestion des comptes)
+ * @Service : reconnaissance en tant que Service par Spring IoC
+ * @Transactional : le service va initier les transactions avec la BDD
  * @author inti0242
  *
  */
@@ -20,11 +22,19 @@ import fr.adaming.entities.CompteEpargne;
 @Transactional
 public class CompteServiceImpl implements ICompteServive {
 
+	/**
+	 * utilisation de compteDao pour l'appel des methodes de la classe CompteDao
+	 * @Autowired pour l'injection de dépendance avec spring
+	 */
 	@Autowired
 	private ICompteDao compteDao;
 	
 	//setter pour injection 
 
+	/**
+	 * setter pour l'injection de l'autowired
+	 * @param compteDao
+	 */
 	public void setCompteDao(ICompteDao compteDao) {
 		this.compteDao = compteDao;
 	}
@@ -32,6 +42,7 @@ public class CompteServiceImpl implements ICompteServive {
 	//methode crud
 	/**
 	 * ajouter un compte Epargne
+	 * @param ce CompteEpargne 
 	 */
 	@Override
 	public void addCompteEpargne(CompteEpargne ce) {
@@ -43,6 +54,7 @@ public class CompteServiceImpl implements ICompteServive {
 
 	/**
 	 * Ajouter un compte courant
+	 * @param cc CompteCourant
 	 */
 	@Override
 	public void addCompteCourant(CompteCourant cc) {
@@ -53,6 +65,7 @@ public class CompteServiceImpl implements ICompteServive {
 
 	/**
 	 * supprimer un comte epargne ou un compte courant
+	 * @param id du compte a supprimer
 	 */
 	@Override
 	public void deleteCompte(int id) {
@@ -63,6 +76,7 @@ public class CompteServiceImpl implements ICompteServive {
 
 	/**
 	 * obtenir un compte compte
+	 * @param id du compte a chercher
 	 */
 	@Override
 	public Compte getCompte(int id) {
@@ -72,6 +86,7 @@ public class CompteServiceImpl implements ICompteServive {
 
 	/**
 	 * obtenir la liste des comptes epargnes
+	 * @return liste des comptes epargnes 
 	 */
 	@Override
 	public List<CompteEpargne> getAllCompteEpargne() {
@@ -87,6 +102,7 @@ public class CompteServiceImpl implements ICompteServive {
 
 	/**
 	 * obtenir la liste des comptes courants
+	 * @return liste des comptes courants
 	 */
 	@Override
 	public List<CompteCourant> getAllCompteCourant() {
@@ -100,6 +116,25 @@ public class CompteServiceImpl implements ICompteServive {
 		}
 		return listeCC;
 
+	}
+
+	/**
+	 * Modifier un compte epargne
+	 * @param ce CompteEpargne
+	 */
+	@Override
+	public void updateCompteEpargne(CompteEpargne ce) {
+		compteDao.updateCompte(ce);
+		
+	}
+
+	/**
+	 * Modififier un compte courant
+	 * @param cc CompteCourant
+	 */
+	@Override
+	public void updateCompteCourant(CompteCourant cc) {
+		compteDao.updateCompte(cc);
 	}
 
 }
