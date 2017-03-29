@@ -32,15 +32,33 @@
 			</div>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12" id="Header"> <a href="${pageContext.request.contextPath}/user/ajoutGerant"><button
-			type="button" class="btn btn-primary" data-whatever="@mdo">Ajout Gerant
-		</button></a>  </div>
-
+				
+					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
+					
 					<div class="col-md-2" id="Menu">
 
-						<div></div>
 						<h1>Je suis le Menu</h1>
+						<div id="menuGerant">
+						<a href="${pageContext.request.contextPath}/user/ajoutGerant"><button
+						type="button" class="btn btn-primary" data-whatever="@mdo">Afficher Liste Gerant
+						</button></a>
 						
+						<a href="${pageContext.request.contextPath}/user/ajoutGerant"><button
+						type="button" class="btn btn-primary" data-whatever="@mdo">Rechercher un Gerant
+						</button></a>
+						
+						<a href="${pageContext.request.contextPath}/user/ajoutGerant"><button
+						type="button" class="btn btn-primary" data-whatever="@mdo">Ajout Gerant
+						</button></a>
+						
+						<a href="${pageContext.request.contextPath}/user/ajoutGerant"><button
+						type="button" class="btn btn-primary" data-whatever="@mdo">Supprimer Gerant
+						</button></a>
+						
+						<a href="${pageContext.request.contextPath}/user/ajoutGerant"><button
+						type="button" class="btn btn-primary" data-whatever="@mdo">Modification Gerant
+						</button></a>
+						</div>
 	
 
 
@@ -48,6 +66,7 @@
 
 					<div class="col-md-9" id="Contenu">
 						<h1>Je suis le Contenu</h1>
+						
 					</div>
 
 					<div class="col-md-12" id="Footer">
