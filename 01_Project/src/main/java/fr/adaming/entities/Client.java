@@ -111,6 +111,23 @@ public class Client extends Personne {
 	public void setCarte(String carte) {
 		this.carte = carte;
 	}
+	
+
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
+
+	public List<Compte> getListeCompte() {
+		return listeCompte;
+	}
+
+	public void setListeCompte(List<Compte> listeCompte) {
+		this.listeCompte = listeCompte;
+	}
 
 	/**
 	 * La réecriture de la méthode ToString, utilise pour le debuggage
