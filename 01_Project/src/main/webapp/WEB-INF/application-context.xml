@@ -15,7 +15,7 @@
 
 	<bean id="persistenceUnitManager"
 		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
-		<property name="defaultDataSource" ref="dataSourceBean"></property>
+		<property name="defaultDataSource" ref="dataSourceBean" />
 		<property name="persistenceXmlLocations">
 			<list>
 				<value>classpath*:META-INF/persistence.xml</value>
@@ -26,37 +26,41 @@
 
 	<bean id="dataSourceBean"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${db.driver}" />
-		<property name="url" value="${db.url}" />
-		<property name="username" value="${db.user}" />
-		<property name="password" value="${db.mdp}" />
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://127.0.0.1:3306/db_banquepicsou?createDatabaseIfNotExist=true" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
 	</bean>
+
+
+
 	<bean id="entityManagerFactoryBean"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="dataSourceBean" />
-		<property name="packagesToScan" value="fr.adaming.entities" />
-		<property name="persistenceUnitManager" ref="persistenceUnitManager"></property>
-		<property name="persistenceUnitName" value="PU"></property>
-		<!-- <property name="jpaVendorAdapter"> -->
-		<!-- <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean> -->
-		<!-- </property> -->
+
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="true" />
+			</bean>
+		</property>
 
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.dialect">${db.dialect}</prop>
-				<prop key="hibernate.show_sql">${db.requete_sql}</prop>
-				<prop key="hibernate.hbm2ddl.auto">${db.hbm2ddl}</prop>
+				<prop key="hibernate.show_sql">true</prop>
 			</props>
 		</property>
+
+		<property name="persistenceUnitManager" ref="persistenceUnitManager" />
 	</bean>
 
 
-
+	<!-- Transaction manager -->
 	<bean id="transactionManagerBean" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactoryBean" />
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManagerBean" />
-
 
 </beans>
