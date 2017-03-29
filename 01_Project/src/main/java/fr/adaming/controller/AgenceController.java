@@ -81,7 +81,7 @@ public class AgenceController{
 		return "gererListe";
 	}
 	
-	@RequestMapping(value = "/listeAgenceParId{idA}", method = RequestMethod.GET)
+	@RequestMapping(value = "/listeAgenceParId{idA}", method = RequestMethod.POST)
 	public String afficherAgenceById(ModelMap model,@PathVariable("idA") int id) {
 		Agence AgenceById = agenceService.getAgence(id);
 		model.addAttribute("agenceListe", AgenceById);
