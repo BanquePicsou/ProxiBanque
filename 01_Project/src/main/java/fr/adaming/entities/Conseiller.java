@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 
 @Entity
 @DiscriminatorValue("conseiller")
@@ -25,6 +28,7 @@ public class Conseiller extends Personne{
 	
 	/* Les asso a mapper : 1 gerant et une liste de client */
 	@OneToMany(mappedBy="conseiller")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Client> listeClient;
 	
 	@ManyToOne

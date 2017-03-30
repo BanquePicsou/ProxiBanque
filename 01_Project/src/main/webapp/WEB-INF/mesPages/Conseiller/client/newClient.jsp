@@ -39,7 +39,7 @@
 		<br/>
 					
 						<form:form method="POST"
-							action="${pageContext.request.contextPath}/user/ajoutClient"
+							action="${pageContext.request.contextPath}/user/soumettreClient"
 							commandName="command">
 							<table class="formAjout">
 
