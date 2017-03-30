@@ -46,7 +46,7 @@ public class AgenceController{
 		System.out.println(pAgence);
 		System.out.println("--------------------------");
 		agenceService.addAgence(pAgence);
-		return "ajoutAgence";
+		return "BigBoss/ajoutAgence";
 	}
 	
 	@RequestMapping(value="/deleteAgence{idA}", method=RequestMethod.GET)
@@ -78,7 +78,7 @@ public class AgenceController{
 	public String afficherAgence(ModelMap model) {
 		List<Agence> listeAgence = agenceService.getList();
 		model.addAttribute("agenceListe", listeAgence);
-		return "gererListe";
+		return "BigBoss/gererListe";
 	}
 	
 

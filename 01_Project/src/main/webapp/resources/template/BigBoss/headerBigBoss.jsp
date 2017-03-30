@@ -4,8 +4,9 @@
 			type="button" class="btn btn-primary" data-whatever="@mdo">Gestion Gerant
 		</button></a>
 		
-		<a href="${pageContext.request.contextPath}/admin/agence/ajoutAgence"><button
+		<a href="${pageContext.request.contextPath}/admin/agence/listeAgence"><button
 			type="button" class="btn btn-primary" data-whatever="@mdo">Gestion Agence
 		</button></a>
 
 		  </div>
+		  
