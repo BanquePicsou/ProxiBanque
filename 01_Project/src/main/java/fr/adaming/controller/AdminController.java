@@ -29,11 +29,11 @@ public class AdminController {
 	IPersonneService personneService;
 	
 	
-	@RequestMapping(value="/liste", method=RequestMethod.GET)
+	@RequestMapping(value="/listeGerant", method=RequestMethod.GET)
 	public String getListGerant(ModelMap model){
 		List<Gerant> liste = personneService.getAllGerant();
-		model.addAttribute("listegerant", liste);
-		return null;//mettre la page
+		model.addAttribute("listeGerant", liste);
+		return "BigBoss/listeGerant";//mettre la page
 	}
 	
 

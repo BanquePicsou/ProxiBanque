@@ -3,6 +3,8 @@ package fr.adaming.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -101,8 +103,10 @@ public class PersonneServiceImpl implements IPersonneService {
 	 * @return string utilisé pour la navigation suite à un refus de la suppression si privilege insuffisant */
 	@SuppressWarnings("unchecked")
 	@Override
-	public String deletePersonne(int id, String role) {
+	public String deletePersonne(int id, HttpSession session) {
 		Personne p = personneDao.getPersonne(id);
+		Personne user = (Personne) session.getAttribute("users");
+		String role = user.getRole();
 		//Si c'est un simple client, tout le monde peut supprimer
 		if(p.getRole().equals("ROLE_CLIENT")){
 			personneDao.deletePersonne(p);
@@ -191,7 +195,7 @@ public class PersonneServiceImpl implements IPersonneService {
 		List<Personne> liste = personneDao.getList();
 		List<Gerant> listeRetour = new ArrayList<>();
 		for(Personne p:liste){
-			if(p.getRole().equals("ROLE_CONSEILLER")){
+			if(p.getRole().equals("ROLE_GERANT")){
 				listeRetour.add((Gerant) p);
 			}
 		}

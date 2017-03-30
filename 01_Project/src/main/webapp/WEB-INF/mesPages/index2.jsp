@@ -25,7 +25,16 @@
 </head>
 
 <body background="resources/img/374215-alexfas01.jpg">
-	coucou
- 	<%response.sendRedirect("site/index"); %>
+	
+	<div class="col-md-12" id="Header"> <a href="${pageContext.request.contextPath}/AccueilConseiller.jsp"><button
+			type="button" class="btn btn-primary" data-whatever="@mdo">Vers conseiller
+		</button></a>
+		<a href="${pageContext.request.contextPath}/AccueilBigBoss.jsp"><button
+			type="button" class="btn btn-primary" data-whatever="@mdo">Vers bb
+		</button></a>
+		<a href="${pageContext.request.contextPath}/AccueilGerant.jsp"><button
+			type="button" class="btn btn-primary" data-whatever="@mdo">Vers gerant
+		</button></a>
+		  </div>
 </body>
 </html>

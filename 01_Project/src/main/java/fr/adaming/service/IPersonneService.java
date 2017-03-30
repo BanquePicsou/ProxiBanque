@@ -2,6 +2,8 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Conseiller;
 import fr.adaming.entities.Gerant;
@@ -25,7 +27,7 @@ public interface IPersonneService {
 	
 	/* pour supprimer */
 	/** Cette methode peut supprimer n'importe quelle personne selon son id*/
-	public String deletePersonne (int id, String role);
+	public String deletePersonne (int id, HttpSession session);
 	
 	
 	/* pour update */

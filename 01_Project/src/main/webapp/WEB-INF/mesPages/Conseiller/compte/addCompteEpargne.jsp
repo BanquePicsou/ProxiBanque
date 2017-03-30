@@ -9,11 +9,11 @@
 </head>
 <body>
 <h2>Formulaire ajouter compte epargne</h2>
-	<form:form method="POST" action="${pageContext.request.contextPath}/compte/ajoutCompteEpargne"
+	<form:form method="POST" action="${pageContext.request.contextPath}/compte/soumettreCompteEpargne"
 		commandName="command">
 		<table>
 			<tr>
-				<td>${id}</td>
+				<td>${command.id}</td>
 				<td><form:input path="id" type="hidden" /></td>
 			</tr>
 			<tr>

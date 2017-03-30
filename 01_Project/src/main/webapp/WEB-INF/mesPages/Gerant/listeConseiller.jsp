@@ -16,7 +16,7 @@
 			<th>Mdp</th>
 
 		</tr>
-		<c:forEach var="cons" items="${consListe}">
+		<c:forEach var="cons" items="${liste}">
 			<tr bgcolor="lightyellow">
 				<td>${cons.id}</td>
 				<td>${cons.nom}</td>

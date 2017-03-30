@@ -31,10 +31,10 @@ public class ConseillerController {
 	@Autowired
 	IPersonneService personneService;
 	
-	@RequestMapping(value="/allclient", method=RequestMethod.GET)
+	@RequestMapping(value="/allClient", method=RequestMethod.GET)
 	public String getAllClient(ModelMap model){
 		List<Client> liste = personneService.getAllClients();
-		model.addAttribute("listeclient", liste);
+		model.addAttribute("listeClient", liste);
 		return null; //mettre une rediction
 	}
 	

@@ -3,10 +3,8 @@ package fr.adaming.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
 import org.springframework.stereotype.Repository;
 
 
@@ -95,5 +93,7 @@ public class PersonneDaoImpl<T extends Personne> implements IPersonneDao<T> {
 	public void updatePersonne(T personne) {
 		em.merge(personne);		
 	}
+
+
 
 }
