@@ -55,7 +55,7 @@ public class PersonneController {
 	@RequestMapping(value="/ajoutClient", method=RequestMethod.GET)
 	public ModelAndView afficherFormulaireClient(){
 		System.out.println("--debuggage : on rentre dans la methode qui charge le formulaire d'inscription du client: \n");
-		return new ModelAndView("newClient","command",new Client());
+		return new ModelAndView("Conseiller/client/newClient","command",new Client());
 	}
 	/**
 	 * Appel la méthode de Personne Service pour ajouter un nouveau Client à la BDD

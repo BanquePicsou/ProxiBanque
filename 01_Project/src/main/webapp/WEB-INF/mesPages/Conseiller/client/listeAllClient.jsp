@@ -36,27 +36,30 @@
 
 					<div class="col-md-9" id="Contenu">
 <!-- cellspacing="0" cellpadding="6" border="1" width="60%" -->
-						<h1>Liste des Gerants</h1>
+						<h1>Liste des Clients du Conseiller</h1>
 						<table class="table table-hover" >
 							<tr bgcolor="grey" style="color: white;">
 								<th>Nom</th>
 								<th>Prenom</th>
-								<th>Mot de Passe</th>
-								<th>Modifier</th>
-								<th>Supprimer</th>
+								<th>Adresse</th>
+								<th>Telephone</th>
+								<th>Carte</th>
+
 
 							</tr>
-							<c:forEach var="gerant" items="${listeGerant}">
+							<c:forEach var="client" items="${listeClient}">
 								<tr bgcolor="lightyellow">
-									<td>${gerant.nom}</td>
-									<td>${gerant.prenom}</td>
-									<td>${gerant.password}</td>
+									<td>${client.nom}</td>
+									<td>${client.prenom}</td>
+									<td>${client.adresse}</td>
+									<td>${client.telephone}</td>
+									<td>${client.carte}</td>
 									<td><a
-										href="${pageContext.request.contextPath}/user/update${gerant.id}">Modifier
+										href="${pageContext.request.contextPath}/user/update${client.id}">Modifier
 											
 									</a></td>
 									<td><a
-										href="${pageContext.request.contextPath}/user/delete${gerant.id}">Supprimer
+										href="${pageContext.request.contextPath}/user/delete${client.id}">Supprimer
 										
 									</a></td>
 								</tr>

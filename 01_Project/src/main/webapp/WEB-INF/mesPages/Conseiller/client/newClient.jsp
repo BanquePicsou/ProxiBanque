@@ -30,16 +30,16 @@
 			<div class="container">
 				<div class="row">
 
-					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
+					<%@include file="/resources/template/Conseiller/headerConseiller.jsp"%>
 
-					<%@include file="/resources/template/BigBoss/MenuGerant.jsp"%>
+					<%@include file="/resources/template/Conseiller/MenuClient.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-					<h1>Formulaire d'ajout d'un Gerant</h1>
+					<h1>Formulaire d'ajout d'un Client</h1>
 		<br/>
 					
 						<form:form method="POST"
-							action="${pageContext.request.contextPath}/user/soumettreGerant"
+							action="${pageContext.request.contextPath}/user/ajoutClient"
 							commandName="command">
 							<table class="formAjout">
 
@@ -52,15 +52,26 @@
 									<td><input name="prenom" /></td>
 								</tr>
 								<tr>
-									<td><label>Password</label></td>
-									<td><input type="password" name="password" /></td>
+									<td><label>Adresse</label></td>
+									<td><input  name="adresse" /></td>
+								</tr>
+								<tr>
+									<td><label>Telephone</label></td>
+									<td><input  name="adresse" /></td>
+								</tr>
+								<tr>
+									<td><label>Carte</label></td>
+									<td><select>
+									<option value="VISA">VISA</option>
+									<option value="ELECTRON">ELECTRON</option>
+									</select></td>
 								</tr>
 							</table>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 								<button type="submit" class="btn btn-primary">Ajout
-									Gerant</button>
+									Client</button>
 							</div>
 
 						</form:form>

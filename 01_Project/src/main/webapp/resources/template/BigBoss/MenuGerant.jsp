@@ -24,10 +24,7 @@
 						type="button" class="btn btn-primary" data-whatever="@mdo" style="width: 90%">Ajout Gerant
 						</button></a>
 						
-							<a href="${pageContext.request.contextPath}/user/ajoutGerant"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo" style="width: 90%">Modifier Gerant
-						</button></a>
-					
+											
 
 	</div>
 

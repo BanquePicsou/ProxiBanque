@@ -30,48 +30,60 @@
 			<div class="container">
 				<div class="row">
 
-					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
+					<%@include file="/resources/template/Conseiller/headerConseiller.jsp"%>
 
-					<%@include file="/resources/template/BigBoss/MenuGerant.jsp"%>
+					<%@include file="/resources/template/Conseiller/MenuClient.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-					<h1>Formulaire d'ajout d'un Gerant</h1>
-		<br/>
-					
+						<h1>Je suis le Contenu</h1>
 						<form:form method="POST"
-							action="${pageContext.request.contextPath}/user/soumettreGerant"
+							action="${pageContext.request.contextPath}/user/update/client"
 							commandName="command">
 							<table class="formAjout">
-
+								<tr>
+									
+									<td><form:input path="id" cssStyle="display : none;"/></td>
+								</tr>
 								<tr>
 									<td><label> Nom </label></td>
-									<td><input name="nom" /></td>
+									<td><form:input path="nom" /></td>
 								</tr>
 								<tr>
 									<td><label>Prenom</label></td>
-									<td><input name="prenom" /></td>
+									<td><form:input path="prenom" /></td>
 								</tr>
 								<tr>
-									<td><label>Password</label></td>
-									<td><input type="password" name="password" /></td>
+									<td><label>Adresse</label></td>
+									<td><form:input path="adresse" /></td>
+								</tr>
+								<tr>
+									<td><label>Telephone</label></td>
+									<td><form:input path="adresse" /></td>
+								</tr>
+								<tr>
+									<td><label>Carte</label></td>
+									<td><form:input path="carte" /></td>
+								</tr>
+								<tr>
+									<td><form:input path="role"  cssStyle="display : none;"/></td>
 								</tr>
 							</table>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
-								<button type="submit" class="btn btn-primary">Ajout
-									Gerant</button>
+								<button type="submit" class="btn btn-primary">Modification
+									Client</button>
 							</div>
 
 						</form:form>
 					</div>
 
 					<%@include file="/resources/template/Footer.jsp"%>
-
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 </body>
 </html>

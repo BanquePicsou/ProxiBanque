@@ -39,7 +39,7 @@ public class ConseillerController {
 	public String getAllClient(ModelMap model){
 		List<Client> liste = personneService.getAllClients();
 		model.addAttribute("listeClient", liste);
-		return null; //mettre une rediction
+		return "Conseiller/client/listeAllClient"; //mettre une rediction
 	}
 	
 	/* CODER METHODE get CLIENT BY CONTROLLER QUAND SESSION VUE OK*/
@@ -48,7 +48,7 @@ public class ConseillerController {
 		Conseiller c = (Conseiller) session.getAttribute("users");
 		List<Client> liste = personneService.getClientsByConseiller(c);
 		model.addAttribute("listeClientBy", liste);
-		return null;//ajouter la page d'affichage
+		return "Conseiller/client/listeClient";//ajouter la page d'affichage
 	}
 	
 	
