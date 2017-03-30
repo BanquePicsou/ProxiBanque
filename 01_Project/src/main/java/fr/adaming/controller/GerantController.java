@@ -2,6 +2,8 @@ package fr.adaming.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.adaming.entities.Conseiller;
+import fr.adaming.entities.Gerant;
 import fr.adaming.service.IPersonneService;
 
 /**
@@ -36,4 +39,11 @@ public class GerantController {
 		return null;//corriger après
 	}
 	
+	
+	public String getConseillersByGerant(ModelMap model, HttpSession session){
+		Gerant g = (Gerant) session.getAttribute("users");
+		List<Conseiller> liste = personneService.getConseillersByGerant(g);
+		model.addAttribute("listeCon", liste);
+		return null;//corriger après
+	}
 }
