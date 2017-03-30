@@ -48,7 +48,7 @@ public class AgenceController{
 		agenceService.addAgence(pAgence);
 		List<Agence> listeAgence = agenceService.getList();
 		modelMap.addAttribute("agenceListe", listeAgence);
-		return "BigBoss/gererListe";
+		return "BigBoss/listeAgence";
 	}
 	
 	@RequestMapping(value="/deleteAgence/{idA}", method=RequestMethod.GET)
@@ -58,7 +58,7 @@ public class AgenceController{
 		agenceService.deleteAgence(agenceService.getAgence(id));
 		List<Agence> listeAgence = agenceService.getList();
 		modelMap.addAttribute("agenceListe", listeAgence);
-		return "BigBoss/gererListe";
+		return "BigBoss/listeAgence";
 	}
 	
 	@RequestMapping(value="/updateAgence/{idA}", method=RequestMethod.GET)
@@ -78,14 +78,14 @@ public class AgenceController{
 		agenceService.updateAgence(pAgence);
 		List<Agence> listeAgence = agenceService.getList();
 		modelMap.addAttribute("agenceListe", listeAgence);
-		return "BigBoss/gererListe";
+		return "BigBoss/listeAgence";
 	}
 	
 	@RequestMapping(value = "/listeAgence", method = RequestMethod.GET)
 	public String afficherAgence(ModelMap model) {
 		List<Agence> listeAgence = agenceService.getList();
 		model.addAttribute("agenceListe", listeAgence);
-		return "BigBoss/gererListe";
+		return "BigBoss/listeAgence";
 	}
 	
 
