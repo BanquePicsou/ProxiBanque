@@ -23,51 +23,61 @@
 	rel="stylesheet" type="text/css">
 
 </head>
-<body background="/resources/img/374215-alexfas01.jpg">
+<body background=<c:url value="/resources/img/374215-alexfas01.jpg"/>>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12" id="banner">
-				<h1>Chaque centime est un pas vers le milliard</h1>
-			</div>
+			<%@include file="/resources/template/Banner.jsp"%>
 			<div class="container">
 				<div class="row">
 
 					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
 
-					<%@include file="/resources/template/BigBoss/MenuAgence.jsp"%>
+					<%@include file="/resources/template/BigBoss/MenuGerant.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
 						<h1>Je suis le Contenu</h1>
 						<form:form method="POST"
-							action="${pageContext.request.contextPath}/admin/agence/soumettreUpdateAgence"
+							action="${pageContext.request.contextPath}/user/update/gerant"
 							commandName="command">
 							<table class="formAjout">
 								<tr>
-									<td><label> identifiant </label></td>
-									<td><input type="hidden" name="id"
-										value="${AgenceAModifier.id}" /></td>
+									
+									<td><form:input path="id" cssStyle="display : none;"/></td>
 								</tr>
 								<tr>
-									<td><label> identifiant </label></td>
-									<td><input name="identifiant"
-										value="${AgenceAModifier.identifiant}" /></td>
+									<td><label> Nom </label></td>
+									<td><form:input path="nom" /></td>
+								</tr>
+								<tr>
+									<td><label>Prenom</label></td>
+									<td><form:input path="prenom" /></td>
+								</tr>
+								<tr>
+									<td><label>Password</label></td>
+									<td><form:password path="password" /></td>
+								</tr>
+								
+								<tr>
+									
+									<td><form:input path="role"  cssStyle="display : none;"/></td>
 								</tr>
 							</table>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
-								<button type="submit" class="btn btn-primary">Modifier
-									Agence</button>
+								<button type="submit" class="btn btn-primary">Modification
+									Gerant</button>
 							</div>
 
 						</form:form>
 					</div>
 
 					<%@include file="/resources/template/Footer.jsp"%>
-
 				</div>
 			</div>
 		</div>
 	</div>
+
+
 </body>
 </html>

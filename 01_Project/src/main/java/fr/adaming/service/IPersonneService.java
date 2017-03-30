@@ -2,6 +2,8 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Conseiller;
 import fr.adaming.entities.Gerant;
@@ -17,7 +19,7 @@ public interface IPersonneService {
 	
 	/* Les methodes pour ajouter une personne */
 	/** Ajoute un client en appelant la méthode générique Dao ajout Personne */
-	public void addClient (Client client);
+	public String addClient (Client client, HttpSession session);
 	/** Ajoute un gérant en appelant la méthode générique Dao ajout Personne */
 	public void addGerant (Gerant gerant);
 	/** Ajoute un conseiller en appelant la méthode générique Dao ajout Personne */
@@ -25,7 +27,7 @@ public interface IPersonneService {
 	
 	/* pour supprimer */
 	/** Cette methode peut supprimer n'importe quelle personne selon son id*/
-	public String deletePersonne (int id, String role);
+	public String deletePersonne (int id, HttpSession session);
 	
 	
 	/* pour update */
@@ -52,4 +54,6 @@ public interface IPersonneService {
 	public List<Conseiller> getConseillersByGerant (Gerant gerant);
 	/** Permet de récupérer la liste des clients par conseiler à l'aide des régles de gestion définie dans la classe service */
 	public List<Client> getClientsByConseiller (Conseiller conseiller);
+	
+
 }

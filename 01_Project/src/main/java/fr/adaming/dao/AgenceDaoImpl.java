@@ -52,7 +52,9 @@ public class AgenceDaoImpl implements IAgenceDao {
 	@Override
 	public void deleteAgence(Agence agence) {
 		System.out.println("j'arrive à la méthode de suppression d'agence DAO !");
-		em.remove(agence);
+		Agence agenceDao= em.find(Agence.class, agence.getId());
+		System.out.println(agenceDao);
+		em.remove(agenceDao);
 
 	}
 

@@ -2,6 +2,10 @@ package fr.adaming.controller;
 
 
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -121,7 +125,9 @@ public class PersonneController {
 		System.out.println(pGerant);
 		System.out.println("--------------------------");
 		personneService.addGerant(pGerant);
-		return null; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
+		List<Gerant> liste = personneService.getAllGerant();
+		modelMap.addAttribute("listeGerant", liste);
+		return "BigBoss/listeGerant"; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
 	}
 	
 	
@@ -136,10 +142,10 @@ public class PersonneController {
 	 * @param le rôle de la personne a supprimer
 	 * @return String pour la navigation
 	 */
-	@RequestMapping(value="/delete{idP}{role}", method=RequestMethod.GET)
-	public String deletePersonne(ModelMap modelMap,@PathVariable("idP") int id,@PathVariable("role") String role){
+	@RequestMapping(value="/delete{idP}", method=RequestMethod.GET)
+	public String deletePersonne(ModelMap modelMap,@PathVariable("idP") int id, HttpSession session){
 		System.out.println("--debuggage: on rentre dans la methode qui supprime personne \n");
-		String retour = personneService.deletePersonne(id, role);
+		String retour = personneService.deletePersonne(id,session);
 		System.out.println("-- le string retourné pour la navigation est : "+retour);
 		return retour; 
 	}
@@ -208,8 +214,10 @@ public class PersonneController {
 		System.out.println("--debbug : debut de l'envois du formulaire au service :");
 		System.out.println("le nouveau gerant : "+pGerant);
 		System.out.println("---------------------");
-		personneService.updateConseiller(pGerant);
-		return null;
+		personneService.updateGerant(pGerant);
+		List<Gerant> liste = personneService.getAllGerant();
+		modelMap.addAttribute("listeGerant", liste);
+		return "/BigBoss/listeGerant";
 	}
 	
 	
