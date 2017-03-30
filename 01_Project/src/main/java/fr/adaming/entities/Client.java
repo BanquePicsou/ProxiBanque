@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 /**
  * Classe correspondant aux Client
  * Persistence, enregistrée dans la table personnes, avec le rôle client
@@ -40,6 +43,7 @@ public class Client extends Personne {
 	 * Les regles de gestion sont verifies dans le service
 	 */
 	@OneToMany(mappedBy="client")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Compte> listeCompte;
 	
 	
