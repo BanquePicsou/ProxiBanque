@@ -97,6 +97,7 @@ public class CompteServiceImpl implements ICompteServive {
 				listeE.add((CompteEpargne) c);
 			}
 		}
+		
 		return listeE;
 	}
 
@@ -114,6 +115,7 @@ public class CompteServiceImpl implements ICompteServive {
 				listeCC.add((CompteCourant) c);
 			}
 		}
+		
 		return listeCC;
 
 	}

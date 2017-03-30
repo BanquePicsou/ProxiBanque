@@ -15,14 +15,16 @@
 <th>decouvert</th>
 <th>solde</th>
 <th>datecreation</th>
+<th>Supp/Edit</th>
 
 </tr>
-<c:forEach var="emp" items="${ceListe}">
+<c:forEach var="emp" items="${ccListe}">
 <tr bgcolor="lightyellow">
 <td>${emp.numero}</td>
 <td>${emp.decouvert}</td>
 <td>${emp.solde}</td>
 <td>${emp.datecreation}</td>
+<td><a href="supprimerCC?id_param=${emp.id}">supp</a>|<a href="afficherModifCC?id_param=${emp.id}">Edit</a></td>
 </tr>
 
 </c:forEach>
