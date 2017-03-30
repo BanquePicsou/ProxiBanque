@@ -26,7 +26,16 @@
 		<!-- Interception des urL -->
 		<security:intercept-url pattern="/user/**"
 			access="ROLE_GERANT,ROLE_CONSEILLER,ROLE_ADMIN" />
-			
+		<security:form-login login-page="/login"
+			authentication-failure-url="/login" />
+
+		<security:intercept-url pattern="/admin/**"
+			access="ROLE_ADMIN" />
+		<security:form-login login-page="/login"
+			authentication-failure-url="/login" />
+
+		<security:intercept-url pattern="/compte/**"
+			access="ROLE_GERANT,ROLE_CONSEILLER,ROLE_ADMIN" />
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login" />
 
