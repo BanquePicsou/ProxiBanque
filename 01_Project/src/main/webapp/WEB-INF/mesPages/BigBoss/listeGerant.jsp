@@ -23,12 +23,10 @@
 	rel="stylesheet" type="text/css">
 
 </head>
-<body background="/resources/img/374215-alexfas01.jpg">
+<body background= <c:url value="/resources/img/374215-alexfas01.jpg"/> >
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12" id="banner">
-				<h1>Chaque centime est un pas vers le milliard</h1>
-			</div>
+			<%@include file="/resources/template/Banner.jsp"%>
 			<div class="container">
 				<div class="row">
 

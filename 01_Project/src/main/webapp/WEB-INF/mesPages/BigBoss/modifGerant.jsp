@@ -23,7 +23,7 @@
 	rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body background= <c:url value="/resources/img/374215-alexfas01.jpg"/> >
 
 		<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
 

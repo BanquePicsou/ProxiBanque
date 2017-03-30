@@ -24,7 +24,7 @@
 
 </head>
 
-<body background="resources/img/374215-alexfas01.jpg">
+<body background= <c:url value="resources/img/374215-alexfas01.jpg"/> >
 	<div class="container-fluid">
 		<div class="row">
 		
@@ -33,7 +33,7 @@
 			<div class="container">
 				<div class="row">
 				
-					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
+					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%> 
 					
 					<div class="col-md-2" id="Menu">
 
