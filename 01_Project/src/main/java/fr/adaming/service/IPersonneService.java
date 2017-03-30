@@ -54,4 +54,6 @@ public interface IPersonneService {
 	public List<Conseiller> getConseillersByGerant (Gerant gerant);
 	/** Permet de récupérer la liste des clients par conseiler à l'aide des régles de gestion définie dans la classe service */
 	public List<Client> getClientsByConseiller (Conseiller conseiller);
+	
+
 }
