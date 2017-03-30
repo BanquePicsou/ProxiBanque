@@ -24,7 +24,7 @@
 	<security:http>
 
 		<!-- Interception des urL -->
-		<security:intercept-url pattern="/user/**"
+		<security:intercept-url pattern="/site/**"
 			access="ROLE_GERANT,ROLE_CONSEILLER,ROLE_ADMIN" />
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login" />
