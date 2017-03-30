@@ -41,9 +41,11 @@
 						<h1>Liste des Agence</h1>
 						<table cellspacing="0" cellpadding="6" border="1" width="60%">
 							<tr bgcolor="grey" style="color: white;">
-								<th>identifiant</th>
-								<th>datecreation</th>
-								<th>gerant</th>
+								<th>Identifiant</th>
+								<th>Date de Création</th>
+								<th>Gérant</th>
+								<th>Modifier</th>
+								<th>Supprimer</th>
 
 							</tr>
 							<c:forEach var="agence" items="${agenceListe}">
@@ -51,7 +53,10 @@
 									<td>${agence.identifiant}</td>
 									<td>${agence.datecreation}</td>
 									<td>${agence.gerant.nom}</td>
-
+									<td><a href="${pageContext.request.contextPath}/admin/agence/updateAgence/${agence.id}">Modifier
+						</button></a></td>
+									<td><a href="${pageContext.request.contextPath}/admin/agence/deleteAgence/${agence.id}">Supprimer
+						</button></a></td>
 								</tr>
 
 							</c:forEach>

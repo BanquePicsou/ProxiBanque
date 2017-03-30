@@ -4,22 +4,10 @@
 						<div id="menuGerant">
 						<a href="${pageContext.request.contextPath}/admin/agence/listeAgence"><button
 						type="button" class="btn btn-primary" data-whatever="@mdo">Afficher Liste Agence
-						</button></a>
-						
-						<a href="${pageContext.request.contextPath}/"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Rechercher une Agence
-						</button></a>
+						</button></a>					
 						
 						<a href="${pageContext.request.contextPath}/admin/agence/ajoutAgence"><button
 						type="button" class="btn btn-primary" data-whatever="@mdo">Ajout Agence
-						</button></a>
-						
-						<a href="${pageContext.request.contextPath}/"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Supprimer Agence
-						</button></a>
-						
-						<a href="${pageContext.request.contextPath}/"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Modification Agence
 						</button></a>
 						</div>
 						

@@ -49,14 +49,14 @@ public class AgenceController{
 		return "BigBoss/ajoutAgence";
 	}
 	
-	@RequestMapping(value="/deleteAgence{idA}", method=RequestMethod.GET)
+	@RequestMapping(value="/deleteAgence/{idA}", method=RequestMethod.GET)
 	public String deleteAgence(ModelMap modelMap,@PathVariable("idA") int id){
 		System.out.println("--debuggage: on rentre dans la methode qui supprime une agence \n");
 		agenceService.deleteAgence(agenceService.getAgence(id));
 		return "deleteAgence"; 
 	}
 	
-	@RequestMapping(value="/updateAgence{idA}", method=RequestMethod.GET)
+	@RequestMapping(value="/updateAgence/{idA}", method=RequestMethod.GET)
 	public String updateVueAgence(ModelMap modelMap,@PathVariable("idA") int id){
 		System.out.println("--debuggage: on rentre dans la methode qui modifieune agence \n");
 		Agence agenceAModifier=agenceService.getAgence(id);
@@ -70,7 +70,7 @@ public class AgenceController{
 		System.out.println("L'agence est :");
 		System.out.println(pAgence);
 		System.out.println("--------------------------");
-		agenceService.addAgence(pAgence);
+		agenceService.updateAgence(pAgence);
 		return "updateAgence";
 	}
 	

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,21 +23,14 @@ import fr.adaming.entities.Agence;
 @Transactional
 public class AgenceDaoImpl implements IAgenceDao {
 
-	/**
-	 * Attribut en Autowired utilisé pour la connection dans la base de donnée
-	 * et la création d'un entity manager
-	 */
-	@Autowired
-	EntityManagerFactory emf;
 
-	/**
-	 * Setter de l'entity manager factory pour la création des Entity manager
-	 * dans les méthodes
-	 * 
-	 * @param emf
-	 */
-	public void setEmf(EntityManagerFactory emf) {
-		this.emf = emf;
+
+	@PersistenceContext
+	EntityManager em;
+						
+
+	public void setEm(EntityManager em) {
+		this.em = em;
 	}
 
 	/**
@@ -46,7 +40,6 @@ public class AgenceDaoImpl implements IAgenceDao {
 	 */
 	@Override
 	public void addAgence(Agence agence) {
-		EntityManager em = emf.createEntityManager();
 		em.persist(agence);
 
 	}
@@ -58,7 +51,7 @@ public class AgenceDaoImpl implements IAgenceDao {
 	 */
 	@Override
 	public void deleteAgence(Agence agence) {
-		EntityManager em = emf.createEntityManager();
+		System.out.println("j'arrive à la méthode de suppression d'agence DAO !");
 		em.remove(agence);
 
 	}
@@ -70,7 +63,6 @@ public class AgenceDaoImpl implements IAgenceDao {
 	 */
 	@Override
 	public List<Agence> getList() {
-		EntityManager em = emf.createEntityManager();
 		String req = "Select a FROM Agence a";
 		Query query = em.createQuery(req);
 		return query.getResultList();
@@ -84,8 +76,9 @@ public class AgenceDaoImpl implements IAgenceDao {
 	 */
 	@Override
 	public Agence getAgence(int id) {
-		EntityManager em = emf.createEntityManager();
+		System.out.println("Je suis avant le get Agence");
 		return em.find(Agence.class, id);
+		System.out.println("Je suis après le get Agence");
 	}
 
 	/**
@@ -95,7 +88,6 @@ public class AgenceDaoImpl implements IAgenceDao {
 	 */
 	@Override
 	public void updateAgence(Agence agence) {
-		EntityManager em = emf.createEntityManager();
 		em.merge(agence);
 	}
 
