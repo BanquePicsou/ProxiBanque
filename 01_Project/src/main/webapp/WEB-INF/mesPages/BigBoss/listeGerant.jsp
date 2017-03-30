@@ -23,46 +23,55 @@
 	rel="stylesheet" type="text/css">
 
 </head>
-<body background="/resources/img/374215-alexfas01.jpg">
+<body background=<c:url value="/resources/img/374215-alexfas01.jpg"/>>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12" id="banner">
-				<h1>Chaque centime est un pas vers le milliard</h1>
-			</div>
+			<%@include file="/resources/template/Banner.jsp"%>
 			<div class="container">
 				<div class="row">
 
 					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
 
-					<%@include file="/resources/template/BigBoss/MenuAgence.jsp"%>
+					<%@include file="/resources/template/BigBoss/MenuGerant.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-
-						<h1>Liste des Agence</h1>
-						<table cellspacing="0" cellpadding="6" border="1" width="60%">
+<!-- cellspacing="0" cellpadding="6" border="1" width="60%" -->
+						<h1>Liste des Gerants</h1>
+						<table class="table table-hover" >
 							<tr bgcolor="grey" style="color: white;">
-								<th>identifiant</th>
-								<th>datecreation</th>
-								<th>gerant</th>
+								<th>Nom</th>
+								<th>Prenom</th>
+								<th>Mot de Passe</th>
+								<th>Modifier</th>
+								<th>Supprimer</th>
 
 							</tr>
-							<c:forEach var="agence" items="${agenceListe}">
+							<c:forEach var="gerant" items="${listeGerant}">
 								<tr bgcolor="lightyellow">
-									<td>${agence.identifiant}</td>
-									<td>${agence.datecreation}</td>
-									<td>${agence.gerant.nom}</td>
-
+									<td>${gerant.nom}</td>
+									<td>${gerant.prenom}</td>
+									<td>${gerant.password}</td>
+									<td><a
+										href="${pageContext.request.contextPath}/admin/agence/updateAgence/${agence.id}">Modifier
+											</button>
+									</a></td>
+									<td><a
+										href="${pageContext.request.contextPath}/admin/agence/deleteAgence/${agence.id}">Supprimer
+											</button>
+									</a></td>
 								</tr>
 
 							</c:forEach>
 
-							</div>
+						</table>
+					</div>
+					
+				</div>
+				<%@include file="/resources/template/Footer.jsp"%>
+			</div>
+		</div>
+	</div>
 
-							<%@include file="/resources/template/Footer.jsp"%>
 
-							</div>
-							</div>
-							</div>
-							</div>
 </body>
 </html>

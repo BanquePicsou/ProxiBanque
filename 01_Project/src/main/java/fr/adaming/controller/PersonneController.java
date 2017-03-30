@@ -105,7 +105,7 @@ public class PersonneController {
 	@RequestMapping(value="/ajoutGerant", method=RequestMethod.GET)
 	public ModelAndView afficherFormulaireGerant(){
 		System.out.println("--debuggage : on rentre dans la methode qui charge le formulaire d'inscription du Gerant: \n");
-		return new ModelAndView("newGerant","command",new Gerant());
+		return new ModelAndView("BigBoss/newGerant","command",new Gerant());
 	}
 	/**
 	 * Appel la méthode de Personne Service pour ajouter un nouveau Gerant à la BDD
@@ -167,7 +167,7 @@ public class PersonneController {
 		if(p.getRole().equals("ROLE_GERANT")){
 			System.out.println("la persone recherchée  est un gerant");
 			Gerant g = (Gerant) p;
-			return new ModelAndView("updateGerant","command",g);
+			return new ModelAndView("BigBoss/updateGerant","command",g);
 		}
 		if(p.getRole().equals("ROLE_CONSEILLER")){
 			System.out.println("la personne recherchée est un conseiler");

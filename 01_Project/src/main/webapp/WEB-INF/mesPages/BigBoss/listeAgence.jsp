@@ -23,10 +23,10 @@
 	rel="stylesheet" type="text/css">
 
 </head>
-<body background= <c:url value="/resources/img/374215-alexfas01.jpg"/> >
-		<div class="container-fluid">
+<body background=<c:url value="/resources/img/374215-alexfas01.jpg"/>>
+	<div class="container-fluid">
 		<div class="row">
-		<%@include file="/resources/template/Banner.jsp"%>
+			<%@include file="/resources/template/Banner.jsp"%>
 			<div class="container">
 				<div class="row">
 
@@ -35,37 +35,45 @@
 					<%@include file="/resources/template/BigBoss/MenuAgence.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-						<h1>Je suis le Contenu</h1>
-							<form:form method="POST"
-								action="${pageContext.request.contextPath}/admin/agence/soumettreAjouterAgence"
-								commandName="command">
-							<table class="formAjout">
 
-								<tr>
-									<td><label> identifiant </label></td>
-									<td><input name="identifiant" /></td>
-								</tr>
-								<tr>
-									<td><label>date creation</label></td>
-									<td><input type="date" name="datecreation" /></td>
-								</tr>
-							
-							</table>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Close</button>
-								<button type="submit" class="btn btn-primary">Ajout
-									Gerant</button>
-							</div>
+						<h1>Liste des Agences</h1>
+						<table class="table table-hover">
+							<tr bgcolor="grey" style="color: white;">
+								<th>Identifiant</th>
+								<th>Date de Création</th>
+								<th>Gérant</th>
+								<th>Modifier</th>
+								<th>Supprimer</th>
 
-						</form:form>
+							</tr>
+							<c:forEach var="agence" items="${agenceListe}">
+								<tr bgcolor="lightyellow">
+									<td>${agence.identifiant}</td>
+									<td>${agence.datecreation}</td>
+									<td>${agence.gerant.nom}</td>
+									<td><a
+										href="${pageContext.request.contextPath}/admin/agence/updateAgence/${agence.id}">Modifier
+											</button>
+									</a></td>
+									<td><a
+										href="${pageContext.request.contextPath}/admin/agence/deleteAgence/${agence.id}">Supprimer
+											</button>
+									</a></td>
+								</tr>
+
+							</c:forEach>
+						</table>
 					</div>
-
-						<%@include file="/resources/template/Footer.jsp"%>
-
+					<%@include file="/resources/template/Footer.jsp"%>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+
+
+	
+
 </body>
 </html>

@@ -191,7 +191,7 @@ public class PersonneServiceImpl implements IPersonneService {
 		List<Personne> liste = personneDao.getList();
 		List<Gerant> listeRetour = new ArrayList<>();
 		for(Personne p:liste){
-			if(p.getRole().equals("ROLE_CONSEILLER")){
+			if(p.getRole().equals("ROLE_GERANT")){
 				listeRetour.add((Gerant) p);
 			}
 		}

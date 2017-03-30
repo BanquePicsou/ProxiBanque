@@ -23,12 +23,10 @@
 	rel="stylesheet" type="text/css">
 
 </head>
-<body background="/resources/img/374215-alexfas01.jpg">
+<body background=<c:url value="/resources/img/374215-alexfas01.jpg"/>>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12" id="banner">
-				<h1>Chaque centime est un pas vers le milliard</h1>
-			</div>
+			<%@include file="/resources/template/Banner.jsp"%>
 			<div class="container">
 				<div class="row">
 
@@ -37,10 +35,10 @@
 					<%@include file="/resources/template/BigBoss/MenuGerant.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-						<h1>Je suis le Contenu</h1>
-							<form:form method="POST"
-								action="${pageContext.request.contextPath}/user/soumettreGerant"
-								commandName="command">
+					
+						<form:form method="POST"
+							action="${pageContext.request.contextPath}/user/soumettreGerant"
+							commandName="command">
 							<table class="formAjout">
 
 								<tr>
@@ -66,7 +64,7 @@
 						</form:form>
 					</div>
 
-						<%@include file="/resources/template/Footer.jsp"%>
+					<%@include file="/resources/template/Footer.jsp"%>
 
 				</div>
 			</div>

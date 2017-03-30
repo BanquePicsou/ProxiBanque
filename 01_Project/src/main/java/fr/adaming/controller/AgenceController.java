@@ -36,7 +36,7 @@ public class AgenceController{
 	@RequestMapping(value="/ajoutAgence", method=RequestMethod.GET)
 	public ModelAndView afficherFormulaireAgence(){
 		System.out.println("--debuggage : on rentre dans la methode qui charge le formulaire de création d'agence: \n");
-		return new ModelAndView("newAgence","command",new Agence());
+		return new ModelAndView("BigBoss/newAgence","command",new Agence());
 	}
 	
 	@RequestMapping(value="/soumettreAjouterAgence", method=RequestMethod.POST)
@@ -46,17 +46,17 @@ public class AgenceController{
 		System.out.println(pAgence);
 		System.out.println("--------------------------");
 		agenceService.addAgence(pAgence);
-		return "BigBoss/ajoutAgence";
+		return "ajoutAgence";
 	}
 	
-	@RequestMapping(value="/deleteAgence{idA}", method=RequestMethod.GET)
+	@RequestMapping(value="/deleteAgence/{idA}", method=RequestMethod.GET)
 	public String deleteAgence(ModelMap modelMap,@PathVariable("idA") int id){
 		System.out.println("--debuggage: on rentre dans la methode qui supprime une agence \n");
 		agenceService.deleteAgence(agenceService.getAgence(id));
 		return "deleteAgence"; 
 	}
 	
-	@RequestMapping(value="/updateAgence{idA}", method=RequestMethod.GET)
+	@RequestMapping(value="/updateAgence/{idA}", method=RequestMethod.GET)
 	public String updateVueAgence(ModelMap modelMap,@PathVariable("idA") int id){
 		System.out.println("--debuggage: on rentre dans la methode qui modifieune agence \n");
 		Agence agenceAModifier=agenceService.getAgence(id);
@@ -70,7 +70,7 @@ public class AgenceController{
 		System.out.println("L'agence est :");
 		System.out.println(pAgence);
 		System.out.println("--------------------------");
-		agenceService.addAgence(pAgence);
+		agenceService.updateAgence(pAgence);
 		return "updateAgence";
 	}
 	
@@ -78,7 +78,7 @@ public class AgenceController{
 	public String afficherAgence(ModelMap model) {
 		List<Agence> listeAgence = agenceService.getList();
 		model.addAttribute("agenceListe", listeAgence);
-		return "BigBoss/gererListe";
+		return "BigBoss/listeAgence";
 	}
 	
 
