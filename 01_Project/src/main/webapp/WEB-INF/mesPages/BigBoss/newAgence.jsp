@@ -24,7 +24,7 @@
 
 </head>
 <body background="/resources/img/374215-alexfas01.jpg">
-		<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12" id="banner">
 				<h1>Chaque centime est un pas vers le milliard</h1>
@@ -37,33 +37,42 @@
 					<%@include file="/resources/template/BigBoss/MenuAgence.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-						<h1>Je suis le Contenu</h1>
-							<form:form method="POST"
-								action="${pageContext.request.contextPath}/admin/agence/soumettreAjouterAgence"
-								commandName="command">
+						<h1>Ajout d'une agence</h1>
+						<form:form method="POST"
+							action="${pageContext.request.contextPath}/admin/agence/soumettreAjouterAgence"
+							commandName="command">
 							<table class="formAjout">
 
 								<tr>
-									<td><label> identifiant </label></td>
+									<td><label>Identifiant :</label></td>
 									<td><input name="identifiant" /></td>
 								</tr>
-<!-- 								<tr> -->
-<!-- 									<td><label>date creation</label></td> -->
-<!-- 									<td><input type="date" name="datecreation"/></td> -->
-<!-- 								</tr> -->
-							
+								<!-- 								<tr> -->
+								<!-- 									<td><label>date creation</label></td> -->
+								<!-- 									<td><input type="date" name="datecreation"/></td> -->
+								<!-- 								</tr> -->
+
+								<tr>
+									<td><label>Gérant : </label></td>
+									<td><form:select name="gerant" path="gerant">
+											<c:forEach items="${gerants}" var="g">
+												<form:option value="${g}">${g.nom}</form:option>
+											</c:forEach>
+										</form:select></td>
+								</tr>
+
 							</table>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 								<button type="submit" class="btn btn-primary">Ajout
-									Gerant</button>
+									Agence</button>
 							</div>
 
 						</form:form>
 					</div>
 
-						<%@include file="/resources/template/Footer.jsp"%>
+					<%@include file="/resources/template/Footer.jsp"%>
 
 				</div>
 			</div>

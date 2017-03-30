@@ -2,6 +2,8 @@ package fr.adaming.controller;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,7 +125,9 @@ public class PersonneController {
 		System.out.println(pGerant);
 		System.out.println("--------------------------");
 		personneService.addGerant(pGerant);
-		return null; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
+		List<Gerant> liste = personneService.getAllGerant();
+		modelMap.addAttribute("listeGerant", liste);
+		return "BigBoss/listeGerant"; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
 	}
 	
 	
@@ -210,8 +214,10 @@ public class PersonneController {
 		System.out.println("--debbug : debut de l'envois du formulaire au service :");
 		System.out.println("le nouveau gerant : "+pGerant);
 		System.out.println("---------------------");
-		personneService.updateConseiller(pGerant);
-		return null;
+		personneService.updateGerant(pGerant);
+		List<Gerant> liste = personneService.getAllGerant();
+		modelMap.addAttribute("listeGerant", liste);
+		return "/BigBoss/listeGerant";
 	}
 	
 	

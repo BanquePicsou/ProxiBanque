@@ -56,10 +56,18 @@ public class PersonneServiceImpl implements IPersonneService {
 	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void addClient(Client client) {
+	public String addClient(Client client) {
+	
+		
 		client.setRole("ROLE_CLIENT");
 		client.setActived(true);
+		
 		personneDao.addPersonne(client);
+	
+		return "succes";
+		
+	
+	
 		
 	}
 
@@ -70,12 +78,9 @@ public class PersonneServiceImpl implements IPersonneService {
 	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void addGerant(Gerant gerant) {
-		System.out.println("je rentre dans le service add gerant");
+	public void addGerant(Gerant gerant) {	
 		gerant.setRole("ROLE_GERANT");
-		gerant.setActived(true);
-		System.out.println(gerant);
-		System.out.println("-------------------");
+		gerant.setActived(true);	
 		personneDao.addPersonne(gerant);
 	}
 
@@ -87,9 +92,11 @@ public class PersonneServiceImpl implements IPersonneService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addConseiller(Conseiller conseiller) {
+		
 		conseiller.setRole("ROLE_CONSEILLER");
 		conseiller.setActived(true);
 		personneDao.addPersonne(conseiller);
+	
 		
 	}
 

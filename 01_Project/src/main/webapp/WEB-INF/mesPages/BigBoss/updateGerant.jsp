@@ -14,7 +14,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajout d'un conseiller</title>
+<title>Insert title here</title>
 <script src="<c:url value="/resources/js/jquery-3.2.0.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
 <link href="<c:url value="/resources/css/MonStyleSheet.css" />"
@@ -26,44 +26,58 @@
 <body background=<c:url value="/resources/img/374215-alexfas01.jpg"/>>
 	<div class="container-fluid">
 		<div class="row">
+			<%@include file="/resources/template/Banner.jsp"%>
 			<div class="container">
 				<div class="row">
 
-					<%@include file="/resources/template/Gerant/headerGerant.jsp"%>
+					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
 
-					<%@include file="/resources/template/Gerant/MenuConseiller.jsp"%>
+					<%@include file="/resources/template/BigBoss/MenuGerant.jsp"%>
+
 					<div class="col-md-9" id="Contenu">
+						<h1>Je suis le Contenu</h1>
 						<form:form method="POST"
-							action="${pageContext.request.contextPath}user/soumettreConseiller"
+							action="${pageContext.request.contextPath}/user/update/gerant"
 							commandName="command">
-							<table>
+							<table class="formAjout">
 								<tr>
-									<td><form:label path="nom">Nom:</form:label></td>
+									
+									<td><form:input path="id" cssStyle="display : none;"/></td>
+								</tr>
+								<tr>
+									<td><label> Nom </label></td>
 									<td><form:input path="nom" /></td>
-									<td><form:errors path="nom" cssStyle="color:red" /></td>
 								</tr>
 								<tr>
-									<td><form:label path="prenom">Prenom:</form:label></td>
+									<td><label>Prenom</label></td>
 									<td><form:input path="prenom" /></td>
-									<td><form:errors path="prenom" cssStyle="color:red" /></td>
 								</tr>
 								<tr>
-									<td><form:label path="password">Mot de passe:</form:label></td>
-									<td><form:input path="password" /></td>
-									<td><form:errors path="password" cssStyle="color:red" /></td>
+									<td><label>Password</label></td>
+									<td><form:password path="password" /></td>
 								</tr>
+								
 								<tr>
-									<td><input type="submit" value="ajouter" /></td>
+									
+									<td><form:input path="role"  cssStyle="display : none;"/></td>
 								</tr>
 							</table>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Modification
+									Gerant</button>
+							</div>
+
 						</form:form>
 					</div>
 
 					<%@include file="/resources/template/Footer.jsp"%>
-
 				</div>
 			</div>
 		</div>
 	</div>
+
+
 </body>
 </html>
