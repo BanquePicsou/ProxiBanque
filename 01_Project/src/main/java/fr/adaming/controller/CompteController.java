@@ -50,7 +50,7 @@ public class CompteController {
 	@RequestMapping(value="/ajoutCompteEpargne", method=RequestMethod.GET)
 	public ModelAndView afficherFormulaireAjoutCompteEpargne(){
 		
-		return new ModelAndView("newCompteEpargne","command",new CompteEpargne());
+		return new ModelAndView("addCompteEpargne","command",new CompteEpargne());
 	}
 	//soumettre formulaire compte Epargne
 	/**
@@ -63,7 +63,7 @@ public class CompteController {
 	public String enregistrementAjoutCompteEpargne(ModelMap modelMap, CompteEpargne pCompteEpargne){
 		
 		compteService.addCompteEpargne(pCompteEpargne);
-		return "afficherListeCompteEpargne"; }
+		return "listeCompteEpargne"; }
 		
 		/*pour le compte courant*/
 		//afficher formulaire compte Courant
@@ -74,7 +74,7 @@ public class CompteController {
 		@RequestMapping(value="/ajoutCompteCourant", method=RequestMethod.GET)
 		public ModelAndView afficherFormulaireAjoutCompteCourant(){
 			
-			return new ModelAndView("newCompteCourant","command",new CompteCourant());
+			return new ModelAndView("addCompteCourant","command",new CompteCourant());
 		}
 		//soumettre formulaire compte Courant
 		/**
@@ -87,7 +87,7 @@ public class CompteController {
 		public String enregistrementAjoutCompteCourant(ModelMap modelMap, CompteCourant pCompteCourant){
 			
 			compteService.addCompteCourant(pCompteCourant);
-			return "afficherListeCompteCourant"; }
+			return "listeCompteCourant"; }
 	
 	//methodes pour modifier un compte
 		/*pour le compte epargne*/
@@ -99,7 +99,7 @@ public class CompteController {
 		@RequestMapping(value="/modifierCompteEpargne", method=RequestMethod.GET)
 		public ModelAndView afficherFormulaireModifCompteEpargne(){
 			
-			return new ModelAndView("newCompteEpargne","command",new CompteEpargne());
+			return new ModelAndView("updateCompteEpargne","command",new CompteEpargne());
 		}
 		//soumettre formulaire modif compte Epargne
 		/**
@@ -112,7 +112,7 @@ public class CompteController {
 		public String enregistrementModifCompteEpargne(ModelMap modelMap, CompteEpargne pCompteEpargne){
 			
 			compteService.updateCompteEpargne(pCompteEpargne);
-			return "afficherListeCompteEpargne"; }
+			return "listeCompteEpargne"; }
 			
 			/*pour le compte courant*/
 			//afficher formulaire modif compte Courant
@@ -123,7 +123,7 @@ public class CompteController {
 			@RequestMapping(value="/modifCompteCourant", method=RequestMethod.GET)
 			public ModelAndView afficherFormulaireModifCompteCourant(){
 				
-				return new ModelAndView("newCompteCourant","command",new CompteCourant());
+				return new ModelAndView("updateCompteCourant","command",new CompteCourant());
 			}
 			//soumettre formulaire modif compte Courant
 			/**
@@ -136,7 +136,7 @@ public class CompteController {
 			public String enregistremenModiftCompteCourant(ModelMap modelMap, CompteCourant pCompteCourant){
 				
 				compteService.updateCompteCourant(pCompteCourant);
-				return "afficherListeCompteCourant"; }
+				return "listeCompteCourant"; }
 	
 	
 	//methodes pour supprimer un compte
@@ -148,7 +148,7 @@ public class CompteController {
 			@RequestMapping(value = "/supCompte", method = RequestMethod.GET)
 			public String supC() {
 				// direction vers le formulaire de suppression
-				return "supprimerCompte";
+				return "deleteCompte";
 			}
 
 			// on soumet les donnes du formulaire
@@ -191,7 +191,7 @@ public class CompteController {
 				List<CompteCourant> listeCompteCourant = compteService.getAllCompteCourant();
 
 				model.addAttribute("ccListe", listeCompteCourant);
-				return "afficherListeCc";
+				return "listeCompteCourant";
 			}
 			
 			/**

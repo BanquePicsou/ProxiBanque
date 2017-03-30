@@ -3,12 +3,12 @@
 
 						<h1>Je suis le Menu</h1>
 						<div id="menuGerant">
-						<a href="${pageContext.request.contextPath}/compte/cc"><button
+						<a href="${pageContext.request.contextPath}/compte/afficherCompteCourant"><button
 						type="button" class="btn btn-primary" data-whatever="@mdo">Afficher les comptes courants
 						</button></a>
 						
-						<a href="${pageContext.request.contextPath}/compte/ce"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Afficher les comptes epargnes
+						<a href="${pageContext.request.contextPath}/compte/afficherCompteEpargne"><button
+						type="button" class="btn btn-primary" data-whatever="@mdo">Rechercher un compte
 						</button></a>
 						<a href="${pageContext.request.contextPath}/compte/ajoutCompteCourant"><button
 						type="button" class="btn btn-primary" data-whatever="@mdo">Ajouter un compte courant
