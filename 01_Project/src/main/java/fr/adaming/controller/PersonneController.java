@@ -78,7 +78,7 @@ public class PersonneController {
 	@RequestMapping(value="/ajoutConseiller", method=RequestMethod.GET)
 	public ModelAndView afficherFormulaireConseiller(){
 		System.out.println("--debuggage : on rentre dans la methode qui charge le formulaire d'inscription du conseiller: \n");
-		return new ModelAndView("newConseiller","command",new Conseiller());
+		return new ModelAndView("Gerant/newConseiller","command",new Conseiller());
 	}
 	/**
 	 * Appel la méthode de Personne Service pour ajouter un nouveau Conseiller à la BDD
