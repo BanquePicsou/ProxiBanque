@@ -56,20 +56,17 @@ public class PersonneServiceImpl implements IPersonneService {
 	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao */
 	@SuppressWarnings("unchecked")
 	@Override
-	public String addClient(Client client, HttpSession session) {
-		Conseiller c = (Conseiller) session.getAttribute("users");
-		List<Client> listeC = c.getListeClient();
-		if(listeC.size()<9){
+	public String addClient(Client client) {
+	
+		
 		client.setRole("ROLE_CLIENT");
 		client.setActived(true);
-		client.setConseiller(c);
+		
 		personneDao.addPersonne(client);
-		personneDao.updatePersonne(c);
+	
 		return "succes";
-		}else if(listeC.size()>=9){
-			return "nein";
-		}
-		return null;
+		
+	
 	
 		
 	}
@@ -81,12 +78,9 @@ public class PersonneServiceImpl implements IPersonneService {
 	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void addGerant(Gerant gerant) {
-		System.out.println("je rentre dans le service add gerant");
+	public void addGerant(Gerant gerant) {	
 		gerant.setRole("ROLE_GERANT");
-		gerant.setActived(true);
-		System.out.println(gerant);
-		System.out.println("-------------------");
+		gerant.setActived(true);	
 		personneDao.addPersonne(gerant);
 	}
 
@@ -98,9 +92,11 @@ public class PersonneServiceImpl implements IPersonneService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addConseiller(Conseiller conseiller) {
+		
 		conseiller.setRole("ROLE_CONSEILLER");
 		conseiller.setActived(true);
 		personneDao.addPersonne(conseiller);
+	
 		
 	}
 
