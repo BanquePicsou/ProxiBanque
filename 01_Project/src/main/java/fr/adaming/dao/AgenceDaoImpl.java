@@ -78,7 +78,6 @@ public class AgenceDaoImpl implements IAgenceDao {
 	public Agence getAgence(int id) {
 		System.out.println("Je suis avant le get Agence");
 		return em.find(Agence.class, id);
-		System.out.println("Je suis après le get Agence");
 	}
 
 	/**
