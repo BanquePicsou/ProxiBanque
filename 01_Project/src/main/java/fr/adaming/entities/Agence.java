@@ -59,6 +59,7 @@ public class Agence implements Serializable {
 	 */
 	public Agence() {
 		super();
+		this.datecreation = new Date();
 	}
 
 	/**

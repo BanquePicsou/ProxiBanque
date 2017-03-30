@@ -36,7 +36,7 @@ public class AgenceController{
 	@RequestMapping(value="/ajoutAgence", method=RequestMethod.GET)
 	public ModelAndView afficherFormulaireAgence(){
 		System.out.println("--debuggage : on rentre dans la methode qui charge le formulaire de création d'agence: \n");
-		return new ModelAndView("newAgence","command",new Agence());
+		return new ModelAndView("BigBoss/newAgence","command",new Agence());
 	}
 	
 	@RequestMapping(value="/soumettreAjouterAgence", method=RequestMethod.POST)
@@ -46,14 +46,19 @@ public class AgenceController{
 		System.out.println(pAgence);
 		System.out.println("--------------------------");
 		agenceService.addAgence(pAgence);
-		return "BigBoss/ajoutAgence";
+		List<Agence> listeAgence = agenceService.getList();
+		modelMap.addAttribute("agenceListe", listeAgence);
+		return "BigBoss/gererListe";
 	}
 	
 	@RequestMapping(value="/deleteAgence/{idA}", method=RequestMethod.GET)
 	public String deleteAgence(ModelMap modelMap,@PathVariable("idA") int id){
-		System.out.println("--debuggage: on rentre dans la methode qui supprime une agence \n");
+		System.out.println("--debuggage: on rentre dans la methode qui supprime une agence \n id à supprimer :" + id);
+		System.out.println("Agence à supprimer"+agenceService.getAgence(id));
 		agenceService.deleteAgence(agenceService.getAgence(id));
-		return "deleteAgence"; 
+		List<Agence> listeAgence = agenceService.getList();
+		modelMap.addAttribute("agenceListe", listeAgence);
+		return "BigBoss/gererListe";
 	}
 	
 	@RequestMapping(value="/updateAgence/{idA}", method=RequestMethod.GET)
@@ -61,7 +66,7 @@ public class AgenceController{
 		System.out.println("--debuggage: on rentre dans la methode qui modifieune agence \n");
 		Agence agenceAModifier=agenceService.getAgence(id);
 		modelMap.addAttribute("AgenceAModifier", agenceAModifier);
-		return "updateVueAgence"; 
+		return "BigBoss/ModifAgence"; 
 	}
 	
 	@RequestMapping(value="/soumettreUpdateAgence", method=RequestMethod.POST)
@@ -71,7 +76,9 @@ public class AgenceController{
 		System.out.println(pAgence);
 		System.out.println("--------------------------");
 		agenceService.updateAgence(pAgence);
-		return "updateAgence";
+		List<Agence> listeAgence = agenceService.getList();
+		modelMap.addAttribute("agenceListe", listeAgence);
+		return "BigBoss/gererListe";
 	}
 	
 	@RequestMapping(value = "/listeAgence", method = RequestMethod.GET)

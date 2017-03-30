@@ -47,10 +47,10 @@
 									<td><label> identifiant </label></td>
 									<td><input name="identifiant" /></td>
 								</tr>
-								<tr>
-									<td><label>date creation</label></td>
-									<td><input type="date" name="datecreation" /></td>
-								</tr>
+<!-- 								<tr> -->
+<!-- 									<td><label>date creation</label></td> -->
+<!-- 									<td><input type="date" name="datecreation"/></td> -->
+<!-- 								</tr> -->
 							
 							</table>
 							<div class="modal-footer">
