@@ -52,12 +52,12 @@
 									<td>${gerant.prenom}</td>
 									<td>${gerant.password}</td>
 									<td><a
-										href="${pageContext.request.contextPath}/admin/agence/updateAgence/${agence.id}">Modifier
-											</button>
+										href="${pageContext.request.contextPath}/user/update${gerant.id}">Modifier
+											
 									</a></td>
 									<td><a
-										href="${pageContext.request.contextPath}/admin/agence/deleteAgence/${agence.id}">Supprimer
-											</button>
+										href="${pageContext.request.contextPath}/user/delete${gerant.id}${gerant.role}">Supprimer
+										
 									</a></td>
 								</tr>
 
