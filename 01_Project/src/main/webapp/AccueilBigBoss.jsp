@@ -37,7 +37,7 @@
 					
 					<div class="col-md-2" id="Menu">
 
-						<h1>Je suis le Menu</h1>
+						
 					
 	
 
@@ -45,7 +45,6 @@
 					</div>
 
 					<div class="col-md-9" id="Contenu">
-						<h1>Je suis le Contenu</h1>
 						
 					</div>
 
@@ -53,6 +52,7 @@
 
 				</div>
 			</div>
+			
 		</div>
 	</div>
 
