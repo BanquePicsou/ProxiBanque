@@ -33,7 +33,7 @@ public class AdminController {
 	public String getListGerant(ModelMap model){
 		List<Gerant> liste = personneService.getAllGerant();
 		model.addAttribute("listeGerant", liste);
-		return null;//mettre la page
+		return "BigBoss/listeGerant";//mettre la page
 	}
 	
 
