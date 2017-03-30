@@ -108,7 +108,7 @@ public class SimulationPretController {
 
 	private String[][] simulation(Client client, double montant, int duree, int nbEch) {
 
-		String[][] tableauResult = new String[duree * nbEch][3];
+		String[][] tableauResult = new String[(duree * nbEch)+1][4];
 
 		List<Compte> listeComptes = client.getListeCompte();
 		CompteEpargne ce = null;
@@ -119,6 +119,7 @@ public class SimulationPretController {
 		}
 
 		if (ce != null) {
+			nbEch *= duree;
 
 			double tauxAnnuel = ce.getTaux();
 
@@ -129,26 +130,28 @@ public class SimulationPretController {
 			double capitalRemb = 0;
 			double capital = montant;
 
-			montantEch = Math.round(((capital * tauxPeriodique) / (1 - Math.pow((1 + tauxPeriodique), -nbEch)))*100)/100;
+			montantEch = Math.round(((capital * tauxPeriodique) / (1 - Math.pow((1 + tauxPeriodique), -nbEch))) * 100)
+					/ 100;
 
 			int i = 0;
 
 			while (capital > 0) {
-				interets = Math.round(capital * tauxPeriodique *100)/100;
+				interets = Math.round(capital * tauxPeriodique * 100) / 100;
 
-				capitalRemb = Math.round((montantEch - interets)*100)/100;
-				if (capitalRemb < 0) {
-					capitalRemb = Math.round(capital*100)/100;
+				capitalRemb = Math.round((montantEch - interets) * 100) / 100;
+				if (capitalRemb > capital) {
+					capitalRemb = Math.round(capital * 100) / 100;
 				}
 				capital -= capitalRemb;
 
-				tableauResult[i][0] = String.valueOf(capital) + " x " + String.valueOf(tauxPeriodique * 100) + "% = "
-						+ String.valueOf(interets) + "€";
-				tableauResult[i][1] = String.valueOf(montantEch) + " - " + String.valueOf(interets) + " = "
+				tableauResult[i][0] = "Echéance " + (i + 1);
+				tableauResult[i][1] = String.valueOf(capital + capitalRemb) + " x "
+						+ String.valueOf(tauxPeriodique * 100) + "% = " + String.valueOf(interets) + "€";
+				tableauResult[i][2] = String.valueOf(montantEch) + " - " + String.valueOf(interets) + " = "
 						+ String.valueOf(capitalRemb) + "€";
-				tableauResult[i][2] = String.valueOf(capital + capitalRemb) + " - " + String.valueOf(capitalRemb)
+				tableauResult[i][3] = String.valueOf(capital + capitalRemb) + " - " + String.valueOf(capitalRemb)
 						+ " = " + String.valueOf(capital) + "€";
-				
+
 				i++;
 			}
 

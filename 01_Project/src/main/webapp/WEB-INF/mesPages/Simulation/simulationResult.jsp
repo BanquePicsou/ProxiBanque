@@ -15,36 +15,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="<c:url value="resources/js/jquery-3.2.0.min.js" />"></script>
-<script src="<c:url value="resources/js/bootstrap.js" />"></script>
-<link href="<c:url value="resources/css/MonStyleSheet.css" />"
+<script src="<c:url value="/resources/js/jquery-3.2.0.min.js" />"></script>
+<script src="<c:url value="/resources/js/bootstrap.js" />"></script>
+<link href="<c:url value="/resources/css/MonStyleSheet.css" />"
 	rel="stylesheet">
-<link href="<c:url value="resources/css/bootstrap.css"/>"
+<link href="<c:url value="/resources/css/bootstrap.css"/>"
 	rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-	<c:out value="${client}"></c:out>
-	<c:out value="${montant}"></c:out>
-	<table>
-		<thead>
-			<tr>
-				<td>Intérêts</td>
-				<td>Capital remboursé</td>
-				<td>Capital restant à rembourser</td>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${resulatSimul}" var="ligne">
+	<div>
+		<h1>Simulation d'emprunt</h1>
+	</div>
+	<div>
+		Emprunt pour M./Mme
+		<c:out value="${client.nom}"></c:out>
+		<br /> d'un montant de
+		<c:out value="${montant}"></c:out>
+		€<br/>
+		<c:out value="${nbEch}"></c:out> échéances par an pendant <c:out value="${duree}"></c:out> ans
+	</div>
+	<div>
+		<table class="table">
+			<thead>
 				<tr>
-					<c:forEach items="${ligne}" var="col">
-						<td><c:out value="${col}"></c:out></td>
-					</c:forEach>
+					<td>#</td>
+					<td>Intérêts</td>
+					<td>Capital remboursé</td>
+					<td>Capital restant à rembourser</td>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-
+			</thead>
+			<tbody>
+				<c:forEach items="${resulatSimul}" var="ligne">
+					<tr>
+						<c:forEach items="${ligne}" var="col">
+							<td><c:out value="${col}"></c:out></td>
+						</c:forEach>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
