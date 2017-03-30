@@ -1,6 +1,5 @@
 <div class="col-md-2" id="Menu">
 
-						<h1>Praise the salmon</h1>
 						<div id="menuConseiller">
 						<a href="${pageContext.request.contextPath}/admin/user/listeConseiller"><button
 						type="button" class="btn btn-primary" data-whatever="@mdo">Afficher Liste conseillers

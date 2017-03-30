@@ -29,10 +29,10 @@ public class AdminController {
 	IPersonneService personneService;
 	
 	
-	@RequestMapping(value="/liste", method=RequestMethod.GET)
+	@RequestMapping(value="/listeGerant", method=RequestMethod.GET)
 	public String getListGerant(ModelMap model){
 		List<Gerant> liste = personneService.getAllGerant();
-		model.addAttribute("listegerant", liste);
+		model.addAttribute("listeGerant", liste);
 		return null;//mettre la page
 	}
 	

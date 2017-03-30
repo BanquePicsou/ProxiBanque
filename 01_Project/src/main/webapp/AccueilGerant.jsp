@@ -37,10 +37,8 @@
 					<%@include file="/resources/template/Gerant/headerGerant.jsp"%>
 					
 					<div class="col-md-2" id="Menu">
-
-						<h1>Je suis le Menu</h1>
 					
-	
+					<%@include file="/resources/template/Gerant/MenuConseiller.jsp"%>
 
 
 					</div>
