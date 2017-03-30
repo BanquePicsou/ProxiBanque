@@ -70,7 +70,7 @@ public class PersonneServiceImpl implements IPersonneService {
 	@Override
 	public void addGerant(Gerant gerant) {
 		System.out.println("je rentre dans le service add gerant");
-		gerant.setRole("gerant");
+		gerant.setRole("ROLE_GERANT");
 		gerant.setActived(true);
 		System.out.println(gerant);
 		System.out.println("-------------------");
@@ -85,7 +85,7 @@ public class PersonneServiceImpl implements IPersonneService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addConseiller(Conseiller conseiller) {
-		conseiller.setRole("conseiller");
+		conseiller.setRole("ROLE_CONSEILLER");
 		conseiller.setActived(true);
 		personneDao.addPersonne(conseiller);
 		

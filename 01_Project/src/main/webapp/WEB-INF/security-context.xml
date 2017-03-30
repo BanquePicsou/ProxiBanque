@@ -20,12 +20,13 @@
 
 	<!-- Http intercept les URL -->
 	<!-- Déclaration des URL sécurisées et des autorisations -->
-	<!-- Rôles : ROLE_BOSS, ROLE_GERANT, ROLE_CONSEILLE -->
+	<!-- Rôles : client, gerant, conseiller -->
 	<security:http>
 
 		<!-- Interception des urL -->
-		<security:intercept-url pattern="caca"
-			access="ROLE_BOSS,ROLE_GERANT,ROLE_CONSEILLE" />
+		<security:intercept-url pattern="/user/**"
+			access="ROLE_GERANT,ROLE_CONSEILLER,ROLE_ADMIN" />
+			
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login" />
 
@@ -39,8 +40,8 @@
 
 			<security:jdbc-user-service
 				data-source-ref="dataSourceBean1"
-				users-by-username-query="SELECT nom_personne as username, mdp_users as password, actived FROM personnes WHERE username=?"
-				authorities-by-username-query="SELECT nom_personne as username, role_personne as namerole FROM personnes WHERE username=?" />
+				users-by-username-query="SELECT nom_personne as username, mdp_users as password, actived FROM personnes WHERE nom_personne=?"
+				authorities-by-username-query="SELECT nom_personne as username, role_personne as namerole FROM personnes WHERE nom_personne=?" />
 
 		</security:authentication-provider>
 	</security:authentication-manager>
