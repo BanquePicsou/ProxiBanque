@@ -10,11 +10,11 @@
 <body>
 
 <h2>Formulaire ajouter compte courant</h2>
-	<form:form method="POST" action="${pageContext.request.contextPath}/compte/ajoutCompteCourant"
+	<form:form method="POST" action="${pageContext.request.contextPath}/compte/soumettreCompteCourant"
 		commandName="command">
 		<table>
 			<tr>
-				<td>${id}</td>
+				<td>${command.id}</td>
 				<td><form:input path="id" type="hidden" /></td>
 			</tr>
 			<tr>
