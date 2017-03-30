@@ -33,7 +33,7 @@ public class GerantController {
 	public String getAllConseiller(ModelMap model){
 		List<Conseiller> liste = personneService.getAllConseiller();
 		model.addAttribute("listeConseiller", liste);
-		return null;//corriger après
+		return "Gerant/listeConseiller";//corriger après
 	}
 	
 }
