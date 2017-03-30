@@ -3,7 +3,6 @@ package fr.adaming.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -26,16 +25,16 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 	/**
 	 * appel de emf pour faire les requetes jpa
 	 */
-	@Autowired
-	EntityManagerFactory emf;
+	@PersistenceContext
+	EntityManager em;
 	
 	//setter pour injection
 	/**
 	 * setter pour l'injection de l'autowired
 	 * @param emf
 	 */
-	public void setEmF(EntityManagerFactory emf) {
-		this.emf = emf;
+	public void setEmF(EntityManager em) {
+		this.em = em;
 	}
 
 	//methodes crud
@@ -46,7 +45,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 	 */
 	@Override
 	public void addCompte(T compte) {
-		EntityManager em=emf.createEntityManager();
+		
 		em.persist(compte);
 		
 	}
@@ -57,7 +56,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 	 */
 	@Override
 	public void deleteCompte(T compte) {
-		EntityManager em=emf.createEntityManager();
+	
 	em.remove(compte);
 		
 	}
@@ -68,7 +67,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 	 */
 	@Override
 	public List<Compte> getList() {
-		EntityManager em=emf.createEntityManager();
+		
 		String req="select c from Compte c";
 		Query query=em.createQuery(req);
 		return query.getResultList();
@@ -81,7 +80,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 	 */
 	@Override
 	public Compte getCompte(int id) {
-		EntityManager em=emf.createEntityManager();
+		
 		return em.find(Compte.class, id) ;
 	}
 
@@ -91,7 +90,7 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 	 */
 	@Override
 	public void updateCompte(T compte) {
-		EntityManager em=emf.createEntityManager();
+		
 	em.merge(compte);
 		
 	}
