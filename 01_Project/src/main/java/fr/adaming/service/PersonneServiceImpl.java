@@ -56,18 +56,19 @@ public class PersonneServiceImpl implements IPersonneService {
 	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao */
 	@SuppressWarnings("unchecked")
 	@Override
-	public String addClient(Client client) {
-	
-		
-		client.setRole("ROLE_CLIENT");
-		client.setActived(true);
-		
-		personneDao.addPersonne(client);
-	
-		return "succes";
-		
-	
-	
+	public String addClient(Client client, Conseiller conseiller) {
+		List<Client> liste = conseiller.getListeClient();
+		if(liste.size()<9){
+			liste.add(client);
+			client.setRole("ROLE_CLIENT");
+			client.setActived(true);
+			conseiller.setListeClient(liste);	
+			personneDao.addPersonne(client);
+			personneDao.updatePersonne(conseiller);
+			return "succes";
+		}else{
+			return "gofuckyourself";
+			}
 		
 	}
 
@@ -84,21 +85,6 @@ public class PersonneServiceImpl implements IPersonneService {
 		personneDao.addPersonne(gerant);
 	}
 
-	/** Ajoute un conseiller en appelant la méthode générique Dao ajout Personne
-	 * Comme il s'agit d'un conseiller, le rôle "conseiller" lui est attribué avant 
-	 * la transmission à la base de donnée
-	 * @param conseiller : le conseiller créer par l'utilisateur 
-	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void addConseiller(Conseiller conseiller) {
-		
-		conseiller.setRole("ROLE_CONSEILLER");
-		conseiller.setActived(true);
-		personneDao.addPersonne(conseiller);
-	
-		
-	}
 
 	/** Cette methode peut supprimer n'importe quelle personne selon son id
 	 * La personne est récupérée via la methode getByID puis envoyée à la 
@@ -300,6 +286,23 @@ public class PersonneServiceImpl implements IPersonneService {
 	@Override
 	public void updateConseiller(Conseiller conseiller) {
 		personneDao.updatePersonne(conseiller);	
+	}
+	/** Ajoute un conseiller en appelant la méthode générique Dao ajout Personne
+	 * Comme il s'agit d'un conseiller, le rôle "conseiller" lui est attribué avant 
+	 * la transmission à la base de donnée
+	 * @param conseiller : le conseiller créer par l'utilisateur 
+	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void addConseiller(Conseiller conseiller, Gerant g) {
+		conseiller.setGerant(g);
+		List<Conseiller> liste = g.getListeConseiller();	
+		conseiller.setRole("ROLE_CONSEILLER");
+		conseiller.setActived(true);
+		liste.add(conseiller);
+		g.setListeConseiller(liste);
+		personneDao.addPersonne(conseiller);
+		personneDao.updatePersonne(g);
 	}
 
 }

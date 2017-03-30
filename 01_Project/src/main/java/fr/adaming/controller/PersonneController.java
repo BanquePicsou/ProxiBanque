@@ -65,12 +65,13 @@ public class PersonneController {
 	 */
 	/*1)b)enregistrement du client*/
 	@RequestMapping(value="/soumettreClient", method=RequestMethod.POST)
-	public String enregistrementEmploye(ModelMap modelMap, Client pClient){
+	public String enregistrementEmploye(ModelMap modelMap, Client pClient, HttpSession session){
 		System.out.println("--debuggage: on rentre dans la methode qui envois le formulaire client au service : \n");
 		System.out.println("Le client est :");
 		System.out.println(pClient);
 		System.out.println("--------------------------");
-		personneService.addClient(pClient);
+		Conseiller c = (Conseiller) session.getAttribute("users") ;
+		personneService.addClient(pClient, c);
 		return null; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
 	}
 	/*-2)Ajout d'un conseiller*/
@@ -92,12 +93,13 @@ public class PersonneController {
 	 */
 	/*2)b)enregistrement du Conseiller*/
 	@RequestMapping(value="/soumettreConseiller", method=RequestMethod.POST)
-	public String enregistrementEmploye(ModelMap modelMap, Conseiller pConseiller){
+	public String enregistrementEmploye(ModelMap modelMap, Conseiller pConseiller, HttpSession session){
 		System.out.println("--debuggage: on rentre dans la methode qui envois le formulaire Conseiller au service : \n");
 		System.out.println("Le Conseiller est :");
 		System.out.println(pConseiller);
 		System.out.println("--------------------------");
-		personneService.addConseiller(pConseiller);
+		Gerant g = (Gerant) session.getAttribute("users");
+		personneService.addConseiller(pConseiller, g);
 		return null; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
 	}
 	/*-3)Ajout d'un gérant*/

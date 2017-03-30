@@ -19,11 +19,11 @@ public interface IPersonneService {
 	
 	/* Les methodes pour ajouter une personne */
 	/** Ajoute un client en appelant la méthode générique Dao ajout Personne */
-	public String addClient (Client client);
+	public String addClient (Client client, Conseiller conseiller);
 	/** Ajoute un gérant en appelant la méthode générique Dao ajout Personne */
 	public void addGerant (Gerant gerant);
 	/** Ajoute un conseiller en appelant la méthode générique Dao ajout Personne */
-	public void addConseiller (Conseiller conseiller);
+	public void addConseiller (Conseiller conseiller, Gerant g);
 	
 	/* pour supprimer */
 	/** Cette methode peut supprimer n'importe quelle personne selon son id*/

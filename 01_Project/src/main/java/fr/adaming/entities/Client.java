@@ -66,7 +66,7 @@ public class Client extends Personne {
 	 */
 	public Client(String nom, String prenom, String adresse, String telephone, String carte) {
 		super(nom, prenom);
-		this.adresse = adresse
+		this.adresse = adresse;
 		this.telephone = telephone;
 		this.carte = carte;
 	}
