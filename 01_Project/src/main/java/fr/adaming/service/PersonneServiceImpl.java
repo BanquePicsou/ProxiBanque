@@ -302,9 +302,9 @@ public class PersonneServiceImpl implements IPersonneService {
 		List<Conseiller> liste = g.getListeConseiller();	
 		conseiller.setRole("ROLE_CONSEILLER");
 		conseiller.setActived(true);
-		liste.add(conseiller);
-		g.setListeConseiller(liste);
 		personneDao.addPersonne(conseiller);
+		liste.add(conseiller);
+		g.setListeConseiller(liste);	
 		personneDao.updatePersonne(g);
 	}
 
