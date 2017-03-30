@@ -19,7 +19,7 @@ public interface IPersonneService {
 	
 	/* Les methodes pour ajouter une personne */
 	/** Ajoute un client en appelant la méthode générique Dao ajout Personne */
-	public void addClient (Client client);
+	public String addClient (Client client, HttpSession session);
 	/** Ajoute un gérant en appelant la méthode générique Dao ajout Personne */
 	public void addGerant (Gerant gerant);
 	/** Ajoute un conseiller en appelant la méthode générique Dao ajout Personne */

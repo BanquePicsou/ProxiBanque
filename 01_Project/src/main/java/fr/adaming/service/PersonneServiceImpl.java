@@ -56,10 +56,21 @@ public class PersonneServiceImpl implements IPersonneService {
 	 * @SuprresWarning annule l'erreur lié à la généricité de PersonneDao */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void addClient(Client client) {
+	public String addClient(Client client, HttpSession session) {
+		Conseiller c = (Conseiller) session.getAttribute("users");
+		List<Client> listeC = c.getListeClient();
+		if(listeC.size()<9){
 		client.setRole("ROLE_CLIENT");
 		client.setActived(true);
+		client.setConseiller(c);
 		personneDao.addPersonne(client);
+		personneDao.updatePersonne(c);
+		return "succes";
+		}else if(listeC.size()>=9){
+			return "nein";
+		}
+		return null;
+	
 		
 	}
 
