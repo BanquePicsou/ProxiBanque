@@ -24,7 +24,7 @@
 <td>${emp.taux}</td>
 <td>${emp.solde}</td>
 <td>${emp.datecreation}</td>
-<td><a href="supprimerCategorie?id_param=${emp.id}">supp</a>|<a href="afficherModifCE?id_param=${emp.id}">Edit</a></td>
+<td><a href="supprimerC?id_param=${emp.id}">supp</a>|<a href="afficherModifCE?id_param=${emp.id}">Edit</a></td>
 </tr>
 
 </c:forEach>

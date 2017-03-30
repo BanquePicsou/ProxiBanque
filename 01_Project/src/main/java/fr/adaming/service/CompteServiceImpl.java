@@ -70,6 +70,7 @@ public class CompteServiceImpl implements ICompteServive {
 	@Override
 	public void deleteCompte(int id) {
 		Compte compte = compteDao.getCompte(id);
+		
 		compteDao.deleteCompte(compte);
 
 	}
@@ -126,6 +127,7 @@ public class CompteServiceImpl implements ICompteServive {
 	 */
 	@Override
 	public void updateCompteEpargne(CompteEpargne ce) {
+		ce.setTypecompte("compteEpargne");
 		compteDao.updateCompte(ce);
 		
 	}
@@ -136,6 +138,7 @@ public class CompteServiceImpl implements ICompteServive {
 	 */
 	@Override
 	public void updateCompteCourant(CompteCourant cc) {
+		cc.setTypecompte("compteCourant");
 		compteDao.updateCompte(cc);
 	}
 
