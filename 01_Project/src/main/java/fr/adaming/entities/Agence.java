@@ -71,6 +71,13 @@ public class Agence implements Serializable {
 		this.identifiant = identifiant;
 	}
 
+	
+
+	public Agence(String identifiant, Gerant gerant) {
+		super();
+		this.identifiant = identifiant;
+		this.gerant = gerant;
+	}
 
 	/**
 	 * Constructeur complet

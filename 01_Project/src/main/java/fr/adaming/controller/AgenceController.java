@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.entities.Agence;
+import fr.adaming.entities.Gerant;
 import fr.adaming.service.IAgenceService;
+import fr.adaming.service.IPersonneService;
 
 @Controller
 @RequestMapping("/admin/agence")
@@ -23,13 +25,25 @@ public class AgenceController{
 	 */
 	@Autowired
 	IAgenceService agenceService;
+	
+	@Autowired
+	IPersonneService personneService;
 
 	public void setAgenceService(IAgenceService agenceService) {
 		this.agenceService = agenceService;
 	}
 	
+	
+	public void setPersonneService(IPersonneService personneService) {
+		this.personneService = personneService;
+	}
+
+
+
 	@RequestMapping(value="/ajoutAgence", method=RequestMethod.GET)
-	public ModelAndView afficherFormulaireAgence(){
+	public ModelAndView afficherFormulaireAgence(ModelMap model){
+		List<Gerant> liste = personneService.getAllGerant();
+		model.addAttribute("gerants", liste);
 		return new ModelAndView("BigBoss/newAgence","command",new Agence());
 	}
 	
