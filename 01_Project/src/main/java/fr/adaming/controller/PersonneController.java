@@ -54,7 +54,6 @@ public class PersonneController {
 	 */
 	@RequestMapping(value="/ajoutClient", method=RequestMethod.GET)
 	public ModelAndView afficherFormulaireClient(){
-		System.out.println("--debuggage : on rentre dans la methode qui charge le formulaire d'inscription du client: \n");
 		return new ModelAndView("Conseiller/client/newClient","command",new Client());
 	}
 	/**
@@ -66,10 +65,6 @@ public class PersonneController {
 	/*1)b)enregistrement du client*/
 	@RequestMapping(value="/soumettreClient", method=RequestMethod.POST)
 	public String enregistrementEmploye(ModelMap modelMap, Client pClient, HttpSession session){
-		System.out.println("--debuggage: on rentre dans la methode qui envois le formulaire client au service : \n");
-		System.out.println("Le client est :");
-		System.out.println(pClient);
-		System.out.println("--------------------------");
 		Conseiller c = (Conseiller) session.getAttribute("users") ;
 		personneService.addClient(pClient, c);
 		return null; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */

@@ -57,13 +57,16 @@ public class PersonneServiceImpl implements IPersonneService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public String addClient(Client client, Conseiller conseiller) {
+		System.out.println("le conseiller est : "+conseiller);
 		List<Client> liste = conseiller.getListeClient();
+		System.out.println(liste);
 		if(liste.size()<9){
-			liste.add(client);
 			client.setRole("ROLE_CLIENT");
 			client.setActived(true);
-			conseiller.setListeClient(liste);	
 			personneDao.addPersonne(client);
+			client.setConseiller(conseiller);
+			liste.add(client);
+			conseiller.setListeClient(liste);		
 			personneDao.updatePersonne(conseiller);
 			return "succes";
 		}else{
