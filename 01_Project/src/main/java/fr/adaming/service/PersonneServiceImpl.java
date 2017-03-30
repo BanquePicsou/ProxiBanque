@@ -55,7 +55,7 @@ public class PersonneServiceImpl implements IPersonneService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addClient(Client client) {
-		client.setRole("client");
+		client.setRole("ROLE_CLIENT");
 		client.setActived(true);
 		personneDao.addPersonne(client);
 		
@@ -104,32 +104,32 @@ public class PersonneServiceImpl implements IPersonneService {
 	public String deletePersonne(int id, String role) {
 		Personne p = personneDao.getPersonne(id);
 		//Si c'est un simple client, tout le monde peut supprimer
-		if(p.getRole().equals("client")){
+		if(p.getRole().equals("ROLE_CLIENT")){
 			personneDao.deletePersonne(p);
 			return "deleteok";
 		}
 		//si c'est un conseiller, seul gerant et admin peuvent supprimer
-		if(p.getRole().equals("conseiller")){
-			if(role.equals("conseiller")){
+		if(p.getRole().equals("ROLE_CONSEILLER")){
+			if(role.equals("ROLE_CONSEILLER")){
 			return "refus";
 			}
-			if(role.equals("gerant") || role.equals("admin")){
+			if(role.equals("ROLE_GERANT") || role.equals("ROLE_ADMIN")){
 				personneDao.deletePersonne(p);
 				return "deleteok";
 				}
 		}
 		//si c'est un gérant, seul admin peut supprimer
-		if(p.getRole().equals("gerant")){
-			if(role.equals("conseiller")||role.equals("gerant")){
+		if(p.getRole().equals("ROLE_GERANT")){
+			if(role.equals("ROLE_CONSEILLER")||role.equals("ROLE_GERANT")){
 			return "refus";
 			}
-			if(role.equals("admin")){
+			if(role.equals("ROLE_ADMIN")){
 				personneDao.deletePersonne(p);
 				return "deleteok";
 			}
 		}
 		//si c'est un admin, personne ne peut le supprimer
-		if(p.getRole().equals("admin")){
+		if(p.getRole().equals("ROLE_ADMIN")){
 			return "refus";
 		}
 		return null;
@@ -171,7 +171,7 @@ public class PersonneServiceImpl implements IPersonneService {
 		List<Personne> liste = personneDao.getList();
 		List<Client> listeRetour = new ArrayList<>();
 		for(Personne p:liste){
-			if(p.getRole().equals("client")){
+			if(p.getRole().equals("ROLE_CONSEILLER")){
 				listeRetour.add((Client) p);
 			}
 		}
@@ -191,7 +191,7 @@ public class PersonneServiceImpl implements IPersonneService {
 		List<Personne> liste = personneDao.getList();
 		List<Gerant> listeRetour = new ArrayList<>();
 		for(Personne p:liste){
-			if(p.getRole().equals("gerant")){
+			if(p.getRole().equals("ROLE_CONSEILLER")){
 				listeRetour.add((Gerant) p);
 			}
 		}
@@ -210,7 +210,7 @@ public class PersonneServiceImpl implements IPersonneService {
 		List<Personne> liste = personneDao.getList();
 		List<Conseiller> listeRetour = new ArrayList<>();
 		for(Personne p:liste){
-			if(p.getRole().equals("conseiller")){
+			if(p.getRole().equals("ROLE_CONSEILLER")){
 			listeRetour.add((Conseiller) p);
 			}
 		}
@@ -231,7 +231,7 @@ public class PersonneServiceImpl implements IPersonneService {
 		List<Personne> liste = personneDao.getList();
 		List<Conseiller> listeRetour = new ArrayList<>();
 		for(Personne p:liste){
-			if(p.getRole().equals("conseiller")){
+			if(p.getRole().equals("ROLE_CONSEILLER")){
 				/* Cast en conseiller pour utiliser les méthodes de conseiller */
 				Conseiller c = (Conseiller) p;
 				if(c.getGerant().equals(gerant)){
@@ -256,7 +256,7 @@ public class PersonneServiceImpl implements IPersonneService {
 		List<Personne> liste = personneDao.getList();
 		List<Client> listeRetour = new ArrayList<>();
 		for(Personne p:liste){
-			if(p.getRole().equals("client")){
+			if(p.getRole().equals("ROLE_CLIENT")){
 				/* Cast en client pour utiliser les méthodes de conseiller */
 				Client c = (Client) p;
 				if(c.getConseiller().equals(conseiller)){
@@ -265,6 +265,30 @@ public class PersonneServiceImpl implements IPersonneService {
 			}
 		}
 		return listeRetour;
+	}
+	/**
+	 * Met à jour un client en appellant la methode generique updatePersonne
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void updateClient(Client client) {
+		personneDao.updatePersonne(client);	
+	}
+	/**
+	 * Met à jour un gerant en appellant la methode generique updatePersonne
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void updateGerant(Gerant gerant) {
+		personneDao.updatePersonne(gerant);		
+	}
+	/**
+	 * Met à jour un conseiller en appellant la methode generique updatePersonne
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void updateConseiller(Conseiller conseiller) {
+		personneDao.updatePersonne(conseiller);	
 	}
 
 }

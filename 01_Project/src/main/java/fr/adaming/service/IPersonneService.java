@@ -27,6 +27,16 @@ public interface IPersonneService {
 	/** Cette methode peut supprimer n'importe quelle personne selon son id*/
 	public String deletePersonne (int id, String role);
 	
+	
+	/* pour update */
+	/** met à jour un client*/
+	public void updateClient (Client client);
+	/** met à jour un gerant*/
+	public void updateGerant (Gerant gerant);
+	/** met à jour un conseiller*/
+	public void updateConseiller (Conseiller conseiller);
+	
+	
 	/* pour récupérer */
 	/** Permet de récupérer n'importe quelle personne selon son ID */
 	public Personne getPersonne (int id);
