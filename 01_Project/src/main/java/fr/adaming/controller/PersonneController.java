@@ -2,6 +2,8 @@ package fr.adaming.controller;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -136,10 +138,10 @@ public class PersonneController {
 	 * @param le rôle de la personne a supprimer
 	 * @return String pour la navigation
 	 */
-	@RequestMapping(value="/delete{idP}{role}", method=RequestMethod.GET)
-	public String deletePersonne(ModelMap modelMap,@PathVariable("idP") int id,@PathVariable("role") String role){
+	@RequestMapping(value="/delete{idP}", method=RequestMethod.GET)
+	public String deletePersonne(ModelMap modelMap,@PathVariable("idP") int id, HttpSession session){
 		System.out.println("--debuggage: on rentre dans la methode qui supprime personne \n");
-		String retour = personneService.deletePersonne(id, role);
+		String retour = personneService.deletePersonne(id,session);
 		System.out.println("-- le string retourné pour la navigation est : "+retour);
 		return retour; 
 	}
