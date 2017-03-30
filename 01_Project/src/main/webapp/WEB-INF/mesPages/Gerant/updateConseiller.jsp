@@ -8,22 +8,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form method="POST" action="soumettreConseiller">
+	<form:form method="POST"
+		action="${pageContext.request.contextPath}/user/updateConseiller"
+		commandName="command">
 		<table>
 			<tr>
 				<td><form:label path="id">Id:</form:label></td>
 				<td><form:input path="id" /></td>
+				<td><form:errors path="id" cssStyle="color:red" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="nom">Nom:</form:label></td>
 				<td><form:input path="nom" /></td>
+				<td><form:errors path="nom" cssStyle="color:red" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="prenom">Prenom:</form:label></td>
 				<td><form:input path="prenom" /></td>
+				<td><form:errors path="prenom" cssStyle="color:red" /></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="ajouter" /></td>
+				<td><form:label path="mdp">Mot de passe:</form:label></td>
+				<td><form:input path="mdp" /></td>
+				<td><form:errors path="mdp" cssStyle="color:red" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Mettre à jour les données" /></td>
 			</tr>
 		</table>
 	</form:form>

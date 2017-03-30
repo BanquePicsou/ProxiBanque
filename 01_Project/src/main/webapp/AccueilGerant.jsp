@@ -14,7 +14,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Accueil Conseiller</title>
+<title>Accueil Gerant</title>
 <script src="<c:url value="resources/js/jquery-3.2.0.min.js" />"></script>
 <script src="<c:url value="resources/js/bootstrap.js" />"></script>
 <link href="<c:url value="resources/css/MonStyleSheet.css" />"
@@ -34,7 +34,7 @@
 			<div class="container">
 				<div class="row">
 				
-					<%@include file="/resources/template/Conseiller/headerConseiller.jsp"%>
+					<%@include file="/resources/template/Gerant/headerGerant.jsp"%>
 					
 					<div class="col-md-2" id="Menu">
 
