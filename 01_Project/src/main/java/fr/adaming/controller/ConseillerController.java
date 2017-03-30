@@ -2,6 +2,8 @@ package fr.adaming.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.adaming.entities.Client;
+import fr.adaming.entities.Conseiller;
+import fr.adaming.entities.Personne;
 import fr.adaming.service.IPersonneService;
 
 /**
@@ -39,7 +43,13 @@ public class ConseillerController {
 	}
 	
 	/* CODER METHODE get CLIENT BY CONTROLLER QUAND SESSION VUE OK*/
-	
+	@RequestMapping(value="/mesclients", method=RequestMethod.GET)
+	public String getClientsByConseiller(ModelMap model, HttpSession session){	
+		Conseiller c = (Conseiller) session.getAttribute("users");
+		List<Client> liste = personneService.getClientsByConseiller(c);
+		model.addAttribute("listeClientBy", liste);
+		return null;//ajouter la page d'affichage
+	}
 	
 	
 }
