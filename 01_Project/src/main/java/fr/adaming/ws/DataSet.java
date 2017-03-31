@@ -1,11 +1,9 @@
 
-package com.cdyne.ws;
+package fr.adaming.ws;
 
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -19,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="GetQuickQuoteResult" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
+ *         &lt;any/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,36 +28,35 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "getQuickQuoteResult"
+    "any"
 })
-@XmlRootElement(name = "GetQuickQuoteResponse")
-public class GetQuickQuoteResponse {
+public class DataSet {
 
-    @XmlElement(name = "GetQuickQuoteResult", required = true)
-    protected BigDecimal getQuickQuoteResult;
+    @XmlAnyElement(lax = true)
+    protected Object any;
 
     /**
-     * Obtient la valeur de la propriété getQuickQuoteResult.
+     * Obtient la valeur de la propriété any.
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link Object }
      *     
      */
-    public BigDecimal getGetQuickQuoteResult() {
-        return getQuickQuoteResult;
+    public Object getAny() {
+        return any;
     }
 
     /**
-     * Définit la valeur de la propriété getQuickQuoteResult.
+     * Définit la valeur de la propriété any.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link Object }
      *     
      */
-    public void setGetQuickQuoteResult(BigDecimal value) {
-        this.getQuickQuoteResult = value;
+    public void setAny(Object value) {
+        this.any = value;
     }
 
 }

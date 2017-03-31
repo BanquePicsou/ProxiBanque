@@ -1,5 +1,5 @@
 
-package com.cdyne.ws;
+package fr.adaming.ws;
 
 import java.net.MalformedURLException;
 import java.net.URL;

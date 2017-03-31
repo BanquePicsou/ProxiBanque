@@ -1,5 +1,5 @@
 
-package com.cdyne.ws;
+package fr.adaming.ws;
 
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;

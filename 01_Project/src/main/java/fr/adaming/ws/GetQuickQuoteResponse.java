@@ -1,6 +1,7 @@
 
-package com.cdyne.ws;
+package fr.adaming.ws;
 
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -18,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="GetQuoteResult" type="{http://ws.cdyne.com/}QuoteData"/>
+ *         &lt;element name="GetQuickQuoteResult" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +30,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "getQuoteResult"
+    "getQuickQuoteResult"
 })
-@XmlRootElement(name = "GetQuoteResponse")
-public class GetQuoteResponse {
+@XmlRootElement(name = "GetQuickQuoteResponse")
+public class GetQuickQuoteResponse {
 
-    @XmlElement(name = "GetQuoteResult", required = true)
-    protected QuoteData getQuoteResult;
+    @XmlElement(name = "GetQuickQuoteResult", required = true)
+    protected BigDecimal getQuickQuoteResult;
 
     /**
-     * Obtient la valeur de la propriété getQuoteResult.
+     * Obtient la valeur de la propriété getQuickQuoteResult.
      * 
      * @return
      *     possible object is
-     *     {@link QuoteData }
+     *     {@link BigDecimal }
      *     
      */
-    public QuoteData getGetQuoteResult() {
-        return getQuoteResult;
+    public BigDecimal getGetQuickQuoteResult() {
+        return getQuickQuoteResult;
     }
 
     /**
-     * Définit la valeur de la propriété getQuoteResult.
+     * Définit la valeur de la propriété getQuickQuoteResult.
      * 
      * @param value
      *     allowed object is
-     *     {@link QuoteData }
+     *     {@link BigDecimal }
      *     
      */
-    public void setGetQuoteResult(QuoteData value) {
-        this.getQuoteResult = value;
+    public void setGetQuickQuoteResult(BigDecimal value) {
+        this.getQuickQuoteResult = value;
     }
 
 }
