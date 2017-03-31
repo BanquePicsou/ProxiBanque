@@ -267,7 +267,9 @@ public class PersonneServiceImpl implements IPersonneService {
 				System.out.println(c);
 				a++;	
 				int idCl = c.getConseiller().getId();
-				System.out.println("L'id conseiler du client ="+idCl+", = "+idC+"(id du conseiller check");
+				if(idCl==idC){
+					listeRetour.add(c);
+				}
 				
 			}
 			
