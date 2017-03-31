@@ -49,7 +49,11 @@ public class AgenceController{
 	
 	@RequestMapping(value="/soumettreAjouterAgence", method=RequestMethod.POST)
 	public String enregistrementAgence(ModelMap modelMap, Agence pAgence){
+		Gerant gerant = (Gerant) personneService.getPersonne(pAgence.getGerant().getId());
+		pAgence.setGerant(gerant);
 		agenceService.addAgence(pAgence);
+		gerant.setAgence(pAgence);
+		personneService.updateGerant(gerant);
 		List<Agence> listeAgence = agenceService.getList();
 		modelMap.addAttribute("agenceListe", listeAgence);
 		return "BigBoss/listeAgence";
