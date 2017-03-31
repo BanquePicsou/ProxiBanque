@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
 /**
  * Classe dao pour les comptes façon generique
@@ -93,6 +94,14 @@ public class CompteDaoImpl<T extends Compte> implements ICompteDao<T> {
 		
 	em.merge(compte);
 		
+	}
+
+	@Override
+	public List<Compte> getCompteByClient(Client client) {
+		String req="select c from Compte c WHERE client=:pClient";
+		Query query=em.createQuery(req);
+		query.setParameter("pClient", client);
+		return query.getResultList();
 	}
 
 	

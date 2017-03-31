@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
 
 public interface ICompteDao<T extends Compte> {
@@ -12,5 +13,6 @@ public interface ICompteDao<T extends Compte> {
 	public List<Compte> getList();
 	public Compte getCompte(int id);
 	public void updateCompte(T compte);
+	public List<Compte> getCompteByClient(Client client);
 	
 }

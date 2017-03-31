@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.ICompteDao;
+import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
 import fr.adaming.entities.CompteCourant;
 import fr.adaming.entities.CompteEpargne;
@@ -45,9 +46,20 @@ public class CompteServiceImpl implements ICompteServive {
 	 * @param ce CompteEpargne 
 	 */
 	@Override
-	public void addCompteEpargne(CompteEpargne ce) {
-		ce.setTypecompte("compteEpargne");
+	public String addCompteEpargne(CompteEpargne ce, Client client) {
+		ce.setTypecompte("epargne");
+		List<Compte> liste = compteDao.getCompteByClient(client);
+		//on check déjà s'il y a 
+		if(liste.size()>=2){
+			return "refus";
+		}
+		for(Compte c:liste){
+			if(c.getTypecompte().equals("epargne")){
+				return "refus";
+			}
+		}
 		compteDao.addCompte(ce);
+		return "succes";
 
 	}
 
@@ -57,9 +69,20 @@ public class CompteServiceImpl implements ICompteServive {
 	 * @param cc CompteCourant
 	 */
 	@Override
-	public void addCompteCourant(CompteCourant cc) {
-		cc.setTypecompte("compteCourant");
+	public String addCompteCourant(CompteCourant cc, Client client) {
+		cc.setTypecompte("courant");
+		List<Compte> liste = compteDao.getCompteByClient(client);
+		//on check déjà s'il y a 
+		if(liste.size()>=2){
+			return "refus";
+		}
+		for(Compte c:liste){
+			if(c.getTypecompte().equals("courant")){
+				return "refus";
+			}
+		}
 		compteDao.addCompte(cc);
+		return "succes";
 
 	}
 
@@ -125,6 +148,7 @@ public class CompteServiceImpl implements ICompteServive {
 	 * Modifier un compte epargne
 	 * @param ce CompteEpargne
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void updateCompteEpargne(CompteEpargne ce) {
 		ce.setTypecompte("compteEpargne");
@@ -136,10 +160,19 @@ public class CompteServiceImpl implements ICompteServive {
 	 * Modififier un compte courant
 	 * @param cc CompteCourant
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void updateCompteCourant(CompteCourant cc) {
 		cc.setTypecompte("compteCourant");
 		compteDao.updateCompte(cc);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Compte> getCompteByClient(Client client) {
+			
+		return compteDao.getCompteByClient(client);
+	}
+
+	
 }

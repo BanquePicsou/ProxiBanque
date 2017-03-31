@@ -100,7 +100,7 @@ public class CompteController {
 			// ajout client
 			Client cl = (Client) personneService.getPersonne(pCompteEpargne.getClient().getId());
 			pCompteEpargne.setClient(cl);
-			compteService.addCompteEpargne(pCompteEpargne);
+			compteService.addCompteEpargne(pCompteEpargne, cl);
 
 		} else {
 			// ajout date
@@ -156,7 +156,7 @@ public class CompteController {
 			// ajout client
 			Client cl = (Client) personneService.getPersonne(pCompteCourant.getClient().getId());
 			pCompteCourant.setClient(cl);
-			compteService.addCompteCourant(pCompteCourant);
+			compteService.addCompteCourant(pCompteCourant, cl);
 
 		} else {
 			Date datecreation = new Date();
