@@ -254,16 +254,28 @@ public class PersonneServiceImpl implements IPersonneService {
 	@Override
 	public List<Client> getClientsByConseiller(Conseiller conseiller) {
 		List<Personne> liste = personneDao.getList();
+		System.out.println("le conseiller de la session : ");
+		System.out.println(conseiller);
 		List<Client> listeRetour = new ArrayList<>();
+		int idC = conseiller.getId();
+		System.out.println("son id : "+idC);
 		for(Personne p:liste){
+			int a = 1;
 			if(p.getRole().equals("ROLE_CLIENT")){
-				/* Cast en client pour utiliser les méthodes de conseiller */
+				System.out.println("---------"+a+")");
 				Client c = (Client) p;
-				if(c.getConseiller().equals(conseiller)){
+				System.out.println(c);
+				a++;	
+				int idCl = c.getConseiller().getId();
+				if(idCl==idC){
 					listeRetour.add(c);
 				}
+				
 			}
+			
 		}
+			
+		
 		return listeRetour;
 	}
 	/**
