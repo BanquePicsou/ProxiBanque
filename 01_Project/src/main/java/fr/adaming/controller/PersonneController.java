@@ -147,6 +147,8 @@ public class PersonneController {
 			String role = p.getRole();
 			switch (role) {
 			case "ROLE_GERANT":
+				List<Gerant> liste = personneService.getAllGerant();
+				modelMap.addAttribute("listeGerant", liste);
 				return "BigBoss/listeGerant";
 
 			default:
