@@ -40,7 +40,7 @@
 			authentication-failure-url="/login" />
 
 		<security:logout invalidate-session="true"
-			logout-success-url="/login" />
+			logout-success-url="/deconnexion" />
 
 	</security:http>
 
