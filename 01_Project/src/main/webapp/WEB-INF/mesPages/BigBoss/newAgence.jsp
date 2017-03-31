@@ -53,10 +53,10 @@
 								<!-- 								</tr> -->
 
 								<tr>
-									<td><label>Gérant : </label></td>
-									<td><form:select name="gerant" path="gerant">
+									<td><form:label path="gerant">Gérant : </form:label></td>
+									<td><form:select id="gerant" path="gerant.id">
 											<c:forEach items="${gerants}" var="g">
-												<form:option value="${g}">${g.nom}</form:option>
+												<form:option value="${g.id}">${g.nom}</form:option>
 											</c:forEach>
 										</form:select></td>
 								</tr>
