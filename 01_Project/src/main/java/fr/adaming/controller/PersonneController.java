@@ -67,7 +67,7 @@ public class PersonneController {
 	public String enregistrementEmploye(ModelMap modelMap, Client pClient, HttpSession session){
 		Conseiller c = (Conseiller) session.getAttribute("users") ;
 		personneService.addClient(pClient, c);
-		return null; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
+		return "Conseiller/listeClient"; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
 	}
 	/*-2)Ajout d'un conseiller*/
 	/* 2)a)génération du formulaire */
@@ -95,7 +95,7 @@ public class PersonneController {
 		System.out.println("--------------------------");
 		Gerant g = (Gerant) session.getAttribute("users");
 		personneService.addConseiller(pConseiller, g);
-		return null; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
+		return "Gerant/listeConseiller"; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
 	}
 	/*-3)Ajout d'un gérant*/
 	/* 3)a)génération du formulaire */
@@ -165,7 +165,7 @@ public class PersonneController {
 		if(p.getRole().equals("ROLE_CLIENT")){
 			System.out.println("la personne recherchée est un client");
 			Client c = (Client) p;
-			return new ModelAndView("updateClient","command",c); 
+			return new ModelAndView("Conseiller/updateClient","command",c); 
 		}
 		if(p.getRole().equals("ROLE_GERANT")){
 			System.out.println("la persone recherchée  est un gerant");
@@ -175,7 +175,7 @@ public class PersonneController {
 		if(p.getRole().equals("ROLE_CONSEILLER")){
 			System.out.println("la personne recherchée est un conseiler");
 			Conseiller c = (Conseiller) p;
-			return new ModelAndView("updateConseiller","command",c);
+			return new ModelAndView("Gerant/updateConseiller","command",c);
 		}
 		else{
 			return null;//unique cas où c'est un admin)
@@ -192,7 +192,7 @@ public class PersonneController {
 		System.out.println("le nouveau client : "+pClient);
 		System.out.println("---------------------");
 		personneService.updateClient(pClient);
-		return null;
+		return "/Conseiller/listeClient";
 	}
 	/*b)Conseiller*/
 	/** envois le conseiller modifié au service */
@@ -202,7 +202,7 @@ public class PersonneController {
 		System.out.println("le nouveau conseiller : "+pConseiller);
 		System.out.println("---------------------");
 		personneService.updateConseiller(pConseiller);
-		return null;
+		return "/Gerant/listeConseiller";
 	}
 	/*c)Gerant */
 	/** envois le gerant modifié au service */

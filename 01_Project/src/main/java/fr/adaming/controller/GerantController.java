@@ -44,6 +44,6 @@ public class GerantController {
 		Gerant g = (Gerant) session.getAttribute("users");
 		List<Conseiller> liste = personneService.getConseillersByGerant(g);
 		model.addAttribute("listeCon", liste);
-		return null;//corriger après
+		return "Gerant/listeConseiller";//corriger après
 	}
 }

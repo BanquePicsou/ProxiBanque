@@ -3,6 +3,8 @@ package fr.adaming.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.datetime.standard.DateTimeContext;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.CompteCourant;
 import fr.adaming.entities.CompteEpargne;
+import fr.adaming.entities.Conseiller;
 import fr.adaming.service.ICompteServive;
 import fr.adaming.service.IPersonneService;
 
@@ -38,6 +41,7 @@ public class CompteController {
 	@Autowired
 	private IPersonneService personneService;
 
+	
 	/**
 	 * permet l'injection de dependance avec spring pour invoquer les services
 	 * de la classe compte service
@@ -69,9 +73,9 @@ public class CompteController {
 	 *         compte Epargne
 	 */
 	@RequestMapping(value = "/ajoutCompteEpargne", method = RequestMethod.GET)
-	public ModelAndView afficherFormulaireAjoutCompteEpargne(ModelMap modelMap) {
-
-		List<Client> listeClient = personneService.getAllClients();
+	public ModelAndView afficherFormulaireAjoutCompteEpargne(ModelMap modelMap, HttpSession session) {
+		Conseiller george = (Conseiller) session.getAttribute("users");
+		List<Client> listeClient = personneService.getClientsByConseiller(george);
 		modelMap.addAttribute("clientListe", listeClient);
 
 		return new ModelAndView("Conseiller/compte/addCompteEpargne", "command", new CompteEpargne());

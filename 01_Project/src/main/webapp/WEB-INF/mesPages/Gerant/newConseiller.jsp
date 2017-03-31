@@ -26,6 +26,7 @@
 <body background=<c:url value="/resources/img/374215-alexfas01.jpg"/>>
 	<div class="container-fluid">
 		<div class="row">
+		<%@include file="/resources/template/Banner.jsp"%>
 			<div class="container">
 				<div class="row">
 
@@ -34,7 +35,7 @@
 					<%@include file="/resources/template/Gerant/MenuConseiller.jsp"%>
 					<div class="col-md-9" id="Contenu">
 						<form:form method="POST"
-							action="${pageContext.request.contextPath}user/soumettreConseiller"
+							action="${pageContext.request.contextPath}/user/soumettreConseiller"
 							commandName="command">
 							<table>
 								<tr>
@@ -52,10 +53,13 @@
 									<td><form:input path="password" /></td>
 									<td><form:errors path="password" cssStyle="color:red" /></td>
 								</tr>
-								<tr>
-									<td><input type="submit" value="ajouter" /></td>
-								</tr>
 							</table>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Ajout
+									d'un conseiller</button>
+							</div>
 						</form:form>
 					</div>
 
