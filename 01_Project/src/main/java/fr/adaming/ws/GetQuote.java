@@ -1,5 +1,5 @@
 
-package com.cdyne.ws;
+package fr.adaming.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="StockSymbols" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="StockSymbol" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="LicenseKey" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -30,39 +30,39 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "stockSymbols",
+    "stockSymbol",
     "licenseKey"
 })
-@XmlRootElement(name = "GetQuoteDataSet")
-public class GetQuoteDataSet {
+@XmlRootElement(name = "GetQuote")
+public class GetQuote {
 
-    @XmlElement(name = "StockSymbols")
-    protected String stockSymbols;
+    @XmlElement(name = "StockSymbol")
+    protected String stockSymbol;
     @XmlElement(name = "LicenseKey")
     protected String licenseKey;
 
     /**
-     * Obtient la valeur de la propriété stockSymbols.
+     * Obtient la valeur de la propriété stockSymbol.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getStockSymbols() {
-        return stockSymbols;
+    public String getStockSymbol() {
+        return stockSymbol;
     }
 
     /**
-     * Définit la valeur de la propriété stockSymbols.
+     * Définit la valeur de la propriété stockSymbol.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setStockSymbols(String value) {
-        this.stockSymbols = value;
+    public void setStockSymbol(String value) {
+        this.stockSymbol = value;
     }
 
     /**

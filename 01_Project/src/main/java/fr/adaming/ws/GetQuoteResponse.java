@@ -1,9 +1,10 @@
 
-package com.cdyne.ws;
+package fr.adaming.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;any/>
+ *         &lt;element name="GetQuoteResult" type="{http://ws.cdyne.com/}QuoteData"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,35 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "any"
+    "getQuoteResult"
 })
-public class DataSet {
+@XmlRootElement(name = "GetQuoteResponse")
+public class GetQuoteResponse {
 
-    @XmlAnyElement(lax = true)
-    protected Object any;
+    @XmlElement(name = "GetQuoteResult", required = true)
+    protected QuoteData getQuoteResult;
 
     /**
-     * Obtient la valeur de la propriété any.
+     * Obtient la valeur de la propriété getQuoteResult.
      * 
      * @return
      *     possible object is
-     *     {@link Object }
+     *     {@link QuoteData }
      *     
      */
-    public Object getAny() {
-        return any;
+    public QuoteData getGetQuoteResult() {
+        return getQuoteResult;
     }
 
     /**
-     * Définit la valeur de la propriété any.
+     * Définit la valeur de la propriété getQuoteResult.
      * 
      * @param value
      *     allowed object is
-     *     {@link Object }
+     *     {@link QuoteData }
      *     
      */
-    public void setAny(Object value) {
-        this.any = value;
+    public void setGetQuoteResult(QuoteData value) {
+        this.getQuoteResult = value;
     }
 
 }

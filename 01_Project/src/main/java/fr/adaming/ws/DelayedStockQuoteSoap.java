@@ -1,5 +1,5 @@
 
-package com.cdyne.ws;
+package fr.adaming.ws;
 
 import java.math.BigDecimal;
 import javax.jws.WebMethod;
@@ -72,7 +72,7 @@ public interface DelayedStockQuoteSoap {
     @WebResult(name = "GetQuoteDataSetResult", targetNamespace = "http://ws.cdyne.com/")
     @RequestWrapper(localName = "GetQuoteDataSet", targetNamespace = "http://ws.cdyne.com/", className = "com.cdyne.ws.GetQuoteDataSet")
     @ResponseWrapper(localName = "GetQuoteDataSetResponse", targetNamespace = "http://ws.cdyne.com/", className = "com.cdyne.ws.GetQuoteDataSetResponse")
-    public com.cdyne.ws.GetQuoteDataSetResponse.GetQuoteDataSetResult getQuoteDataSet(
+    public fr.adaming.ws.GetQuoteDataSetResponse.GetQuoteDataSetResult getQuoteDataSet(
         @WebParam(name = "StockSymbols", targetNamespace = "http://ws.cdyne.com/")
         String stockSymbols,
         @WebParam(name = "LicenseKey", targetNamespace = "http://ws.cdyne.com/")
