@@ -141,9 +141,19 @@ public class PersonneController {
 	 */
 	@RequestMapping(value="/delete{idP}", method=RequestMethod.GET)
 	public String deletePersonne(ModelMap modelMap,@PathVariable("idP") int id, HttpSession session){
-		System.out.println("--debuggage: on rentre dans la methode qui supprime personne \n");
+		Personne p = personneService.getPersonne(id);
 		String retour = personneService.deletePersonne(id,session);
-		System.out.println("-- le string retourné pour la navigation est : "+retour);
+		if(retour.equals("deleteok")){
+			String role = p.getRole();
+			switch (role) {
+			case "ROLE_GERANT":
+				return "BigBoss/listeGerant";
+
+			default:
+				break;
+			}
+		}
+		
 		return retour; 
 	}
 			

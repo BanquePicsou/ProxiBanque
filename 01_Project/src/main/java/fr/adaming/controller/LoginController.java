@@ -35,7 +35,7 @@ public class LoginController {
 		//ENSUITE, on retourne vers la page dediée en fonction du role de l'user :)
 		switch (p.getRole()) {
 		case "ROLE_ADMIN":
-			return "AccueilBigBoss";
+			return "BigBoss/listeAgence.jsp";
 		case "ROLE_CONSEILLER":
 			return "AccueilConseiller";
 		case "ROLE_GERANT":
