@@ -58,7 +58,6 @@ public class LoginController {
 			return null;
 		}
 		
-		
 	}
 	
 	@RequestMapping(value="/deconnexion")
