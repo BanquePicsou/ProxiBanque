@@ -117,7 +117,7 @@ public class CompteServiceImpl implements ICompteServive {
 		List<Compte> listeC = compteDao.getList();
 		List<CompteEpargne> listeE = new ArrayList<>();
 		for (Compte c : listeC) {
-			if (c.getTypecompte().equals("compteEpargne")) {
+			if (c.getTypecompte().equals("epargne")) {
 				listeE.add((CompteEpargne) c);
 			}
 		}
@@ -135,7 +135,7 @@ public class CompteServiceImpl implements ICompteServive {
 		List<Compte> listeC = compteDao.getList();
 		List<CompteCourant> listeCC = new ArrayList<>();
 		for (Compte c : listeC) {
-			if (c.getTypecompte().equals("compteCourant")) {
+			if (c.getTypecompte().equals("courant")) {
 				listeCC.add((CompteCourant) c);
 			}
 		}
@@ -151,7 +151,7 @@ public class CompteServiceImpl implements ICompteServive {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void updateCompteEpargne(CompteEpargne ce) {
-		ce.setTypecompte("compteEpargne");
+		ce.setTypecompte("epargne");
 		compteDao.updateCompte(ce);
 		
 	}
@@ -163,7 +163,7 @@ public class CompteServiceImpl implements ICompteServive {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void updateCompteCourant(CompteCourant cc) {
-		cc.setTypecompte("compteCourant");
+		cc.setTypecompte("courant");
 		compteDao.updateCompte(cc);
 	}
 
