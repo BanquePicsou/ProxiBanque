@@ -39,7 +39,8 @@ public class CompteController {
 	private IPersonneService personneService;
 
 	/**
-	 * permet l'injection de dependance avec spring
+	 * permet l'injection de dependance avec spring pour invoquer les services
+	 * de la classe compte service
 	 * 
 	 * @return
 	 */
@@ -49,16 +50,17 @@ public class CompteController {
 	}
 
 	/**
-	 * 
+	 * permet l'injection de dependance avec spring pour invoquer les services
+	 * de la classe personne service
 	 * @param personneService
 	 */
 	public void setPersonneService(IPersonneService personneService) {
 		this.personneService = personneService;
 	}
 
-	// methodes pour ajouter un compte
+	//METHODE POUR AJOUTER UN COMPTE
 	/* pour le compte epargne */
-	// afficher formulaire compte Epargne
+	// a) afficher formulaire compte Epargne
 	/**
 	 * Methode qui permet l'affichage du formulaire de création d'un nouveau
 	 * compte Epargne
@@ -75,10 +77,10 @@ public class CompteController {
 		return new ModelAndView("Conseiller/compte/addCompteEpargne", "command", new CompteEpargne());
 	}
 
-	// soumettre formulaire compte Epargne
+	// b) soumettre formulaire compte Epargne
 	/**
 	 * methode qui permet de valider et enregistrer un nouveau compte epargne
-	 * dans la base de donnée
+	 * dans la base de donnée 
 	 * 
 	 * @param modelMap
 	 * @param pCompteEpargne
@@ -114,7 +116,7 @@ public class CompteController {
 	}
 
 	/* pour le compte courant */
-	// afficher formulaire compte Courant
+	//a) afficher formulaire compte Courant
 	/**
 	 * Methode qui permet l'affichage du formulaire de création d'un nouveau
 	 * compte Courant
@@ -131,7 +133,7 @@ public class CompteController {
 		return new ModelAndView("Conseiller/compte/addCompteCourant", "command", new CompteCourant());
 	}
 
-	// soumettre formulaire compte Courant
+	// b) soumettre formulaire compte Courant
 	/**
 	 * methode qui permet de valider et enregistrer un nouveau compte courant
 	 * dans la base de donnée
@@ -171,7 +173,7 @@ public class CompteController {
 	/* pour le compte courant */
 
 	/**
-	 * 
+	 * permet la redirection vers la page ajout compte courant
 	 * @param model
 	 * @param id_cc
 	 * @return
@@ -187,7 +189,7 @@ public class CompteController {
 
 	/* pour le compte epargne */
 	/**
-	 * 
+	 * permet la redirection vers la page ajout compte epargne
 	 * @param model
 	 * @param id_ce
 	 * @return
@@ -203,9 +205,9 @@ public class CompteController {
 
 	// methodes pour supprimer un compte
 
-	// on soumet les donnes du formulaire
+	// on soumet les donnees du formulaire
 	/**
-	 * 
+	 * methode pour supprimer un compte epargne ou un compte courant
 	 * @param model
 	 * @param id
 	 * @return
@@ -232,7 +234,7 @@ public class CompteController {
 
 	// liste compte courant
 	/**
-	 * methode pour afficher la liste dans une page
+	 * methode pour afficher la liste de compte epargne dans une page
 	 * 
 	 * @param model
 	 * @return page de redirection

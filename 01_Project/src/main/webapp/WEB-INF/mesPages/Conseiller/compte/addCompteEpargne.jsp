@@ -7,8 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script src="<c:url value="/resources/js/jquery-3.2.0.min.js" />"></script>
+<script src="<c:url value="/resources/js/bootstrap.js" />"></script>
+<link href="<c:url value="/resources/css/MonStyleSheet.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.css"/>"
+	rel="stylesheet" type="text/css">
+
 </head>
 <body>
+<%@include file="/resources/template/Conseiller/headerConseiller.jsp"%>
 <h2>Formulaire ajouter compte epargne</h2>
 	<form:form method="POST" action="${pageContext.request.contextPath}/compte/soumettreCompteEpargne"
 		commandName="command">
