@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!--     Ajout d ela taglib form de spring -->
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html PUBLIC >
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -33,7 +37,7 @@
 					<div class="col-md-9" id="Contenu">
 
 						<h1>Liste des conseillers</h1>
-						<table cellspacing="0" cellpadding="6" border="1" width="60%">
+						<table class="table table-hover">
 							<tr bgcolor="grey" style="color: white;">
 								<th>id</th>
 								<th>Nom</th>
@@ -41,14 +45,21 @@
 								<th>Mdp</th>
 
 							</tr>
-							<c:forEach var="cons" items="${liste}">
+							<c:forEach var="cons" items="${listeConseiller}">
 								<tr bgcolor="lightyellow">
 									<td>${cons.id}</td>
 									<td>${cons.nom}</td>
 									<td>${cons.prenom}</td>
 									<td>***********</td>
+									<td><a
+										href="${pageContext.request.contextPath}/user/update${cons.id}">Modifier
+											
+									</a></td>
+									<td><a
+										href="${pageContext.request.contextPath}/user/delete${cons.id}">Supprimer
+										
+									</a></td>
 								</tr>
-
 							</c:forEach>
 						</table>
 					</div>

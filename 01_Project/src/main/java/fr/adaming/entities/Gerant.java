@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 /**
  * Classe correspondant aux Gerant : gère une agence et les conseillers associes
  * Persistence, enregistrée dans la table personnes, avec le rôle gerant
@@ -23,6 +26,7 @@ public class Gerant extends Conseiller{
 	
 	/* Les associations : une liste de conseiller et une agence */
 	@OneToMany(mappedBy="gerant")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Conseiller> listeConseiller;
 	
 	/**
