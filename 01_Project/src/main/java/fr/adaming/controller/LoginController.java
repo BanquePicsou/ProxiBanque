@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fr.adaming.entities.Conseiller;
 import fr.adaming.entities.Gerant;
 import fr.adaming.entities.Personne;
 import fr.adaming.service.ILogService;
@@ -53,7 +54,10 @@ public class LoginController {
 		case "ROLE_CONSEILLER":
 			return "AccueilConseiller";
 		case "ROLE_GERANT":
-			return "AccueilGerant";
+			Gerant g = (Gerant) p;
+			List<Conseiller> listeC = personneService.getConseillersByGerant(g);
+			modelMap.addAttribute("listeConseiller", listeC);
+			return "Gerant/listeConseiller";
 		default :
 			return null;
 		}

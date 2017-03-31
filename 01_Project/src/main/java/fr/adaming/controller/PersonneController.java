@@ -95,6 +95,8 @@ public class PersonneController {
 		System.out.println("--------------------------");
 		Gerant g = (Gerant) session.getAttribute("users");
 		personneService.addConseiller(pConseiller, g);
+		List<Conseiller> listeC = personneService.getConseillersByGerant(g);
+		modelMap.addAttribute("listeConseiller", listeC);
 		return "Gerant/listeConseiller"; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
 	}
 	/*-3)Ajout d'un gérant*/
@@ -141,6 +143,7 @@ public class PersonneController {
 	 */
 	@RequestMapping(value="/delete{idP}", method=RequestMethod.GET)
 	public String deletePersonne(ModelMap modelMap,@PathVariable("idP") int id, HttpSession session){
+		Personne useronli = (Personne) session.getAttribute("users");
 		Personne p = personneService.getPersonne(id);
 		String retour = personneService.deletePersonne(id,session);
 		if(retour.equals("deleteok")){
@@ -150,7 +153,11 @@ public class PersonneController {
 				List<Gerant> liste = personneService.getAllGerant();
 				modelMap.addAttribute("listeGerant", liste);
 				return "BigBoss/listeGerant";
-
+			case "ROLE_CONSEILLER":
+				Gerant gerard = (Gerant) useronli;
+				List<Conseiller> listeC = personneService.getConseillersByGerant(gerard);
+				modelMap.addAttribute("listeConseiller", listeC);
+				return "Gerant/listeConseiller";
 			default:
 				break;
 			}
@@ -214,6 +221,8 @@ public class PersonneController {
 		System.out.println("le nouveau conseiller : "+pConseiller);
 		System.out.println("---------------------");
 		personneService.updateConseiller(pConseiller);
+		List<Conseiller> listeC = personneService.getConseillersByGerant(g);
+		modelMap.addAttribute("listeConseiller", listeC);
 		return "/Gerant/listeConseiller";
 	}
 	/*c)Gerant */
