@@ -216,11 +216,12 @@ public class PersonneController {
 	/*b)Conseiller*/
 	/** envois le conseiller modifié au service */
 	@RequestMapping(value="/update/conseiller", method=RequestMethod.POST)
-	public String updateConseiller(ModelMap modelMap, Conseiller pConseiller){
+	public String updateConseiller(ModelMap modelMap, Conseiller pConseiller, HttpSession session){
 		System.out.println("--debbug : debut de l'envois du formulaire au service :");
 		System.out.println("le nouveau conseiller : "+pConseiller);
 		System.out.println("---------------------");
 		personneService.updateConseiller(pConseiller);
+		Gerant g = (Gerant) session.getAttribute("users");
 		List<Conseiller> listeC = personneService.getConseillersByGerant(g);
 		modelMap.addAttribute("listeConseiller", listeC);
 		return "/Gerant/listeConseiller";
