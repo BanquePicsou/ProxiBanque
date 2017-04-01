@@ -12,7 +12,10 @@
 				type="button" class="btn btn-primary" data-whatever="@mdo">Client</button></a> <a
 			href="${pageContext.request.contextPath}/simul/simulClient"><button
 				type="button" class="btn btn-primary" data-whatever="@mdo">Simulation
-				d'emprunt</button></a>
+				d'emprunt</button></a><a
+		href="${pageContext.request.contextPath}/email"><button
+			type="button" class="btn btn-primary" data-whatever="@mdo"
+			style="width: 20%">eMail</button></a>
 
 
 </div>

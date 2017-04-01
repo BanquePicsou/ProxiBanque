@@ -38,6 +38,11 @@
 			access="ROLE_GERANT,ROLE_CONSEILLER,ROLE_ADMIN" />
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login" />
+			
+			<security:intercept-url pattern="/email/**"
+			access="ROLE_GERANT,ROLE_CONSEILLER,ROLE_ADMIN" />
+		<security:form-login login-page="/login"
+			authentication-failure-url="/login" />
 
 		<security:logout invalidate-session="true"
 			logout-success-url="/deconnexion" />

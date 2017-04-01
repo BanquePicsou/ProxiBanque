@@ -14,7 +14,10 @@
 			style="width: 20%">Gestion Gerants</button></a> <a
 		href="${pageContext.request.contextPath}/admin/agence/listeAgence"><button
 			type="button" class="btn btn-primary" data-whatever="@mdo"
-			style="width: 20%">Gestion Agence</button></a> 
+			style="width: 20%">Gestion Agence</button></a> <a
+		href="${pageContext.request.contextPath}/email"><button
+			type="button" class="btn btn-primary" data-whatever="@mdo"
+			style="width: 20%">eMail</button></a>
 
 
 </div>
