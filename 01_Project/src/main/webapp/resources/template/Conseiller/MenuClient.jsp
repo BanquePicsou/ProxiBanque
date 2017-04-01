@@ -1,18 +1,17 @@
 <div class="col-md-2" id="Menu">
 
-						<h1>Je suis le Menu</h1>
 						<div id="menuGerant">
-						<a href="${pageContext.request.contextPath}/user/conseiller/allClient"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Afficher les clients
+						<a href="${pageContext.request.contextPath}/user/conseiller/mesclients"><button
+						type="button" class="btn btn-primary" data-whatever="@mdo" style="width: 90%">Afficher les clients
 						</button></a>
 						
 						<a href="${pageContext.request.contextPath}/compte/afficherCompteEpargne"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Rechercher un client
+						type="button" class="btn btn-primary" data-whatever="@mdo" style="width: 90%">Rechercher un client
 						</button></a>
-						<a href="${pageContext.request.contextPath}/compte/ajoutCompteCourant"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Ajouter client
+						<a href="${pageContext.request.contextPath}/user/ajoutClient"><button
+						type="button" class="btn btn-primary" data-whatever="@mdo" style="width: 90%">Ajouter client
 						</button></a>
-						
+						</div>
 						
 						
 </div>

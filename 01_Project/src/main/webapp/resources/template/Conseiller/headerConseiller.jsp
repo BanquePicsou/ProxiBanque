@@ -1,23 +1,18 @@
 
-<div  id="Menu">
+<div class="col-md-12" id="Header">
+	
+	<a
+			href="${pageContext.request.contextPath}/"><button
+				type="button" class="btn btn-primary" data-whatever="@mdo">Accueil</button></a>
+		<a href="${pageContext.request.contextPath}/compte/listeCompteCourant"><button
+				type="button" class="btn btn-primary" data-whatever="@mdo">Compte Courant</button></a> <a
+			href="${pageContext.request.contextPath}/compte/listeCompteEpargne"><button
+				type="button" class="btn btn-primary" data-whatever="@mdo">Compte Epargne</button></a><a
+			href="${pageContext.request.contextPath}/user/conseiller/mesclients"><button
+				type="button" class="btn btn-primary" data-whatever="@mdo">Client</button></a> <a
+			href="${pageContext.request.contextPath}/simul/simulClient"><button
+				type="button" class="btn btn-primary" data-whatever="@mdo">Simulation
+				d'emprunt</button></a>
 
-						<h1>Je suis le Menu compte</h1>
-						<div id="menuGerant">
-						<a href="${pageContext.request.contextPath}/compte/listeCompteCourant"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Afficher modifier supp les comptes courants
-						</button></a>
-						
-						<a href="${pageContext.request.contextPath}/compte/listeCompteEpargne"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Afficher les comptes epargnes
-						</button></a>
-						<a href="${pageContext.request.contextPath}/compte/ajoutCompteCourant"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Ajouter un compte courant
-						</button></a>
-						
-						<a href="${pageContext.request.contextPath}/compte/ajoutCompteEpargne"><button
-						type="button" class="btn btn-primary" data-whatever="@mdo">Ajouter un compte epargne
-						</button></a>
-						
-						</div>
-						
+
 </div>

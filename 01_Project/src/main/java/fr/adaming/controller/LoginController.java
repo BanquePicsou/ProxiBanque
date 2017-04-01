@@ -52,7 +52,8 @@ public class LoginController {
 			modelMap.addAttribute("listeGerant", liste);
 			return "BigBoss/listeGerant";
 		case "ROLE_CONSEILLER":
-			return "AccueilConseiller";
+			//Redirection vers le controller de la bourse
+			return "redirect:/bourse/bourse";
 		case "ROLE_GERANT":
 			Gerant g = (Gerant) p;
 			List<Conseiller> listeC = personneService.getConseillersByGerant(g);

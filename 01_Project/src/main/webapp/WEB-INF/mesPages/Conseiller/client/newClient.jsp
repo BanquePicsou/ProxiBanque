@@ -30,14 +30,15 @@
 			<div class="container">
 				<div class="row">
 
-					<%@include file="/resources/template/Conseiller/headerConseiller.jsp"%>
+					<%@include
+						file="/resources/template/Conseiller/headerConseiller.jsp"%>
 
 					<%@include file="/resources/template/Conseiller/MenuClient.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-					<h1>Formulaire d'ajout d'un Client</h1>
-		<br/>
-					
+						<h1>Formulaire d'ajout d'un Client</h1>
+						<br />
+
 						<form:form method="POST"
 							action="${pageContext.request.contextPath}/user/soumettreClient"
 							commandName="command">
@@ -53,17 +54,17 @@
 								</tr>
 								<tr>
 									<td><label>Adresse</label></td>
-									<td><input  name="adresse" /></td>
+									<td><input name="adresse" /></td>
 								</tr>
 								<tr>
 									<td><label>Telephone</label></td>
-									<td><input  name="adresse" /></td>
+									<td><input name="telephone" /></td>
 								</tr>
 								<tr>
 									<td><label>Carte</label></td>
-									<td><select>
-									<option value="VISA">VISA</option>
-									<option value="ELECTRON">ELECTRON</option>
+									<td><select name="carte">
+											<option value="VISA">VISA</option>
+											<option value="ELECTRON">ELECTRON</option>
 									</select></td>
 								</tr>
 							</table>

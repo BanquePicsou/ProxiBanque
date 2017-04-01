@@ -67,7 +67,7 @@ public class PersonneController {
 	public String enregistrementEmploye(ModelMap modelMap, Client pClient, HttpSession session){
 		Conseiller c = (Conseiller) session.getAttribute("users") ;
 		personneService.addClient(pClient, c);
-		return "Conseiller/listeClient"; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
+		return "redirect:/user/conseiller/mesclients"; /* !!!!!!!!!METTRE LE RETOUR ICI LORS DE LA CREATION DE LA PAGE ET DE LA NAVIGATION */
 	}
 	/*-2)Ajout d'un conseiller*/
 	/* 2)a)génération du formulaire */
@@ -158,6 +158,8 @@ public class PersonneController {
 				List<Conseiller> listeC = personneService.getConseillersByGerant(gerard);
 				modelMap.addAttribute("listeConseiller", listeC);
 				return "Gerant/listeConseiller";
+			case "ROLE_CLIENT":
+				return "redirect:/user/conseiller/mesclients";
 			default:
 				break;
 			}
@@ -184,7 +186,7 @@ public class PersonneController {
 		if(p.getRole().equals("ROLE_CLIENT")){
 			System.out.println("la personne recherchée est un client");
 			Client c = (Client) p;
-			return new ModelAndView("Conseiller/updateClient","command",c); 
+			return new ModelAndView("Conseiller/client/updateClient","command",c); 
 		}
 		if(p.getRole().equals("ROLE_GERANT")){
 			System.out.println("la persone recherchée  est un gerant");
@@ -211,7 +213,7 @@ public class PersonneController {
 		System.out.println("le nouveau client : "+pClient);
 		System.out.println("---------------------");
 		personneService.updateClient(pClient);
-		return "/Conseiller/listeClient";
+		return "/Conseiller/client/listeClient";
 	}
 	/*b)Conseiller*/
 	/** envois le conseiller modifié au service */

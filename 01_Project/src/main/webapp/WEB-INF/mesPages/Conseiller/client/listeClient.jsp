@@ -30,9 +30,10 @@
 			<div class="container">
 				<div class="row">
 
-					<%@include file="/resources/template/BigBoss/headerBigBoss.jsp"%>
+					<%@include
+						file="/resources/template/Conseiller/headerConseiller.jsp"%>
 
-					<%@include file="/resources/template/BigBoss/MenuGerant.jsp"%>
+					<%@include file="/resources/template/Conseiller/MenuClient.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
 <!-- cellspacing="0" cellpadding="6" border="1" width="60%" -->

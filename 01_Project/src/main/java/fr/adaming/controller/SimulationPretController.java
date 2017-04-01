@@ -1,12 +1,10 @@
 package fr.adaming.controller;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Compte;
-import fr.adaming.entities.CompteCourant;
 import fr.adaming.entities.CompteEpargne;
 import fr.adaming.service.ICompteServive;
 import fr.adaming.service.IPersonneService;
@@ -81,7 +78,8 @@ public class SimulationPretController {
 		System.out.println("--debuggage : on rentre dans la methode qui lance la simulation: \n");
 
 		Client client = (Client) personneService.getPersonne(pClient.getId());
-
+		System.out.println(client);
+		
 		double montant = 0;
 		int duree = 0;
 		int nbEch = 0;
@@ -108,12 +106,13 @@ public class SimulationPretController {
 
 	private String[][] simulation(Client client, double montant, int duree, int nbEch) {
 
-		String[][] tableauResult = new String[(duree * nbEch)+1][4];
+		String[][] tableauResult = new String[(duree * nbEch) + 1][4];
 
 		List<Compte> listeComptes = client.getListeCompte();
+		System.out.println(listeComptes);
 		CompteEpargne ce = null;
 		for (Compte c : listeComptes) {
-			if (c.getTypecompte().equals("compteEpargne")) {
+			if (c.getTypecompte().equals("epargne")) {
 				ce = (CompteEpargne) c;
 			}
 		}
