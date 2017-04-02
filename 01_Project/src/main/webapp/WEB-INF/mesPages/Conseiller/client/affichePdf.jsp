@@ -23,62 +23,38 @@
 	rel="stylesheet" type="text/css">
 
 </head>
+
 <body background=<c:url value="/resources/img/374215-alexfas01.jpg"/>>
 	<div class="container-fluid">
 		<div class="row">
+
 			<%@include file="/resources/template/Banner.jsp"%>
+
 			<div class="container">
 				<div class="row">
 
+					
 					<%@include
 						file="/resources/template/Conseiller/headerConseiller.jsp"%>
 
 					<%@include file="/resources/template/Conseiller/MenuClient.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-<!-- cellspacing="0" cellpadding="6" border="1" width="60%" -->
-						<h1>Liste des Clients du Conseiller</h1>
-						<table class="table table-hover" >
-							<tr bgcolor="grey" style="color: white;">
-								<th>Nom</th>
-								<th>Prenom</th>
-								<th>Adresse</th>
-								<th>Telephone</th>
-								<th>Carte</th>
+						<c:if test="${lienPdf != null }">
+							<object data="${lienPdf}" type="text/html" width="95%"
+								height="650px"></object>
+						</c:if>
+						<c:if test="${lienPdf == null }">
+							<c:out value="${error}"></c:out>
+						</c:if>
 
-
-							</tr>
-							<c:forEach var="client" items="${listeClientBy}">
-								<tr bgcolor="lightyellow">
-									<td>${client.nom}</td>
-									<td>${client.prenom}</td>
-									<td>${client.adresse}</td>
-									<td>${client.telephone}</td>
-									<td>${client.carte}</td>
-									<td><a
-										href="${pageContext.request.contextPath}/user/update${client.id}">Modifier
-											
-									</a></td>
-									<td><a
-										href="${pageContext.request.contextPath}/user/delete${client.id}">Supprimer
-										
-									</a></td>
-									<td><a
-										href="${pageContext.request.contextPath}/pdfGeneration/rib/${client.id}">RIB
-									</a></td>
-								</tr>
-
-							</c:forEach>
-
-						</table>
 					</div>
-					
+
+					<%@include file="/resources/template/Footer.jsp"%>
+
 				</div>
-				<%@include file="/resources/template/Footer.jsp"%>
 			</div>
 		</div>
 	</div>
-
-
 </body>
 </html>
