@@ -36,9 +36,9 @@
 					<%@include file="/resources/template/Conseiller/MenuClient.jsp"%>
 
 					<div class="col-md-9" id="Contenu">
-<!-- cellspacing="0" cellpadding="6" border="1" width="60%" -->
+						<!-- cellspacing="0" cellpadding="6" border="1" width="60%" -->
 						<h1>Liste des Clients du Conseiller</h1>
-						<table class="table table-hover" >
+						<table class="table table-hover">
 							<tr bgcolor="grey" style="color: white;">
 								<th>Nom</th>
 								<th>Prenom</th>
@@ -57,14 +57,17 @@
 									<td>${client.carte}</td>
 									<td><a
 										href="${pageContext.request.contextPath}/user/update${client.id}">Modifier
-											
+
 									</a></td>
 									<td><a
 										href="${pageContext.request.contextPath}/user/delete${client.id}">Supprimer
-										
+
 									</a></td>
 									<td><a
 										href="${pageContext.request.contextPath}/pdfGeneration/rib/${client.id}">RIB
+									</a></td>
+									<td><a
+										href="${pageContext.request.contextPath}/pdfGeneration/releveCpt/${client.id}">Relevé
 									</a></td>
 								</tr>
 
@@ -72,7 +75,7 @@
 
 						</table>
 					</div>
-					
+
 				</div>
 				<%@include file="/resources/template/Footer.jsp"%>
 			</div>
